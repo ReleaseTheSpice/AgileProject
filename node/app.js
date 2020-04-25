@@ -6,7 +6,7 @@ var path          = require('path');
 var engine        = require('ejs-locals');
 var bodyParser    = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
-const DB_URI      = 'mongodb://localhost:27017/EventDB';
+const DB_URI      = 'mongodb://localhost:27017/GamerDB';
 let options       = { useNewUrlParser: true  };
 mongoose.connect(DB_URI, options);
 
@@ -35,7 +35,7 @@ app.use(require('express-session')({
     instance: mongoose,     // optional
     host: 'localhost',      // optional
     port: 27017,            // optional
-    db: 'EventDB',           // optional
+    db: 'GamerDB',          // optional
     collection: 'sessions', // optional
   })
 
