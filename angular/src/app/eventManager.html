@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <style>
+    .events td {
+      width: 123px;
+    }
+    .money td {
+      width: 465px;
+    }
+    .attend {
+      height: 3em;
+      width: 8em;
+    }
+    td {
+      padding: 0 20px;
+    }
+    tr {
+      outline: thin solid lightsalmon;
+      height: 5em;
+    }
+  </style>
+</head>
+<body>
+<br><br>
+<table class="events">
+  <tr *ngFor="let event of events">
+    <td><b>Date: </b>{{event?.date}} <br> <b>Time: </b>{{event?.time}}</td>
+    <td>{{event?.name}}</td>
+    <td style="width: 15em;">{{event?.description}}</td>
+    <td><input type="button" class="attend" id="{{event.name.concat('@view')}}"
+               (click)="viewAttendees(event?.name)" value="View Attendees"></td>
+    <td><input type="button" class="attend" id="{{event.name.concat('@delete')}}"
+               (click)="delete(event?.name)" value="Delete"></td>
+  </tr>
+</table>
+
+<input type="button" class="attend" (click)="makeEvent()" value="Create an Event">
+</body>
