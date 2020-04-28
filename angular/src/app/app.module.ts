@@ -11,10 +11,11 @@ import { MyEvents } from "./app.myEvents";
 import { CreateEvent } from "./app.createEvent";
 import { EventManager} from "./app.eventManager";
 import { ViewAttendees } from "./app.viewAttendees";
+import { Forum } from "./app.forum";
 
 @NgModule({
   declarations: [
-    AppComponent, Main, Login, Register, MyEvents, CreateEvent, EventManager, ViewAttendees
+    AppComponent, Main, Login, Register, MyEvents, CreateEvent, EventManager, ViewAttendees, Forum
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, routing

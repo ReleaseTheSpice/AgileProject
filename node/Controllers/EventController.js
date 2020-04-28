@@ -1,6 +1,4 @@
 const Event           = require('../Models/Event');
-var   passport       = require('passport');
-const RequestService = require('../Services/RequestService');
 const EventRepo       = require('../Data/EventRepo');
 const _eventRepo      = new EventRepo();
 
@@ -13,7 +11,7 @@ exports.GetEvents = async function(request, response) {
     else {
         response.json( { events:[], errorMessage:"no events found" })
     }
-}
+};
 
 // creates an event using POST
 exports.CreateEvent = async function(request, response) {
@@ -78,7 +76,7 @@ exports.AddAttendee = async function(request, response) {
     let responseObject = await _eventRepo.update(tempObj);
 
     // Update was successful.
-    if(responseObject.errorMessage == "") {
+    if(responseObject.errorMessage === "") {
         response.json({ event:responseObject.obj,
                                             errorMessage:"" });
     }
@@ -89,7 +87,7 @@ exports.AddAttendee = async function(request, response) {
             event:      responseObject.obj,
             errorMessage: responseObject.errorMessage });
     }
-}
+};
 
 exports.Delete = async function(request, response) {
     let name           = request.body.name;
@@ -99,4 +97,4 @@ exports.Delete = async function(request, response) {
     console.log(JSON.stringify(deletedItem));
     let events     = await _eventRepo.allEvents();
     response.json( {events:events});
-}
+};

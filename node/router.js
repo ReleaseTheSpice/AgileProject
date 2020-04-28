@@ -1,6 +1,7 @@
 var HomeController   = require('./Controllers/HomeController');
 var UserController   = require('./Controllers/UserController');
 var EventController   = require('./Controllers/EventController');
+var MessageController = require('./Controllers/MessageController');
 const authMiddleware = require('./authHelper')
 const cors           = require('cors');
 
@@ -22,6 +23,9 @@ module.exports = function(app){
     app.post('/Event/CreateEvent', EventController.CreateEvent);
     app.put('/Event/AddAttendee', EventController.AddAttendee);
     app.delete('/Event/Delete', EventController.Delete);
+
+    app.get('/Message/GetMessages', MessageController.GetMessages);
+    app.post('/Message/CreateMessage', MessageController.CreateMessage);
 
     // Sign in
     app.post(

@@ -4,6 +4,11 @@ class EventRepo {
     EventRepo() {        
     }
 
+    async getEvent(name) {
+        let event = await Event.findOne({name:name}).exec();
+        return   event;
+    }
+
     async allEvents() {     
         let events = await Event.find().exec();
         return events;
@@ -42,7 +47,7 @@ class EventRepo {
     }
 
     async update(editedObj) {   
-        // Set up response object which contains origianl object and empty error message.
+        // Set up response object which contains original object and empty error message.
         let response = {
             obj:          editedObj,
             errorMessage: "" };

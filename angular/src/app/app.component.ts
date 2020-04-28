@@ -8,7 +8,8 @@ import { ApiService } from './ApiService';
   template: `
 <h1> Martin's Event Manager </h1>
 <nav>
-  <a routerLink="/main" routerLinkActive="active">Main</a>
+  <a routerLink="/main" routerLinkActive="active">Main</a> |
+  <a routerLink="/forum" routerLinkActive="active">Forum</a>
   <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/register" routerLinkActive="active">Register</a> </span>
   <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/login" routerLinkActive="active">Login</a> </span>
   <span *ngIf="admin"> | <a routerLink="/eventManager" routerLinkActive="active">Event Manager</a> </span>
