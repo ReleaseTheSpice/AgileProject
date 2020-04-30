@@ -5,6 +5,10 @@ var messageSchema = mongoose.Schema({
     _id: {
         type: Number
     },
+    author: {
+        type: String,
+        required:true
+    },
     content: {
         type: String,
         required:true
@@ -16,6 +20,13 @@ var messageSchema = mongoose.Schema({
     replies: {
         type: Array,
         default: []
+    },
+    reply: {
+        type: Boolean
+    },
+    votes: {
+        type: Number,
+        default: 0
     }
 }, {
     versionKey: false,
