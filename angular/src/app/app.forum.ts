@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 
 @Component({
-    template: `Hello! this is the forum page!`
+    templateUrl: './app.forum.html'
 })
 
 //FIXME

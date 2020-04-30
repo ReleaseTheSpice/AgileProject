@@ -9,7 +9,7 @@ const cors           = require('cors');
 // Routes
 module.exports = function(app){  
     // Main Routes
-    app.get('/',      HomeController.Index);
+    app.get('/', HomeController.Index);
 
     app.get('/User/Register', UserController.Register);
     app.post('/User/RegisterUser', cors(), UserController.RegisterUser);
@@ -26,6 +26,8 @@ module.exports = function(app){
 
     app.get('/Message/GetMessages', MessageController.GetMessages);
     app.post('/Message/CreateMessage', MessageController.CreateMessage);
+    app.put('/Message/AddReply', MessageController.AddReply);
+    app.delete('/Message/Delete', MessageController.Delete);
 
     // Sign in
     app.post(
