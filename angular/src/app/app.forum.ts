@@ -120,3 +120,4 @@ export class Forum {
         this._content = "";
     }
 }
+
