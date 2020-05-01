@@ -6,14 +6,14 @@ import { ApiService } from './ApiService';
 @Component({
   selector: 'app-root',
   template: `
-<h1> Martin's Event Manager </h1>
+<h1> Gold Gamer Experience </h1>
 <nav>
   <a routerLink="/main" routerLinkActive="active">Main</a> |
   <a routerLink="/forum" routerLinkActive="active">Forum</a>
   <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/register" routerLinkActive="active">Register</a> </span>
   <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/login" routerLinkActive="active">Login</a> </span>
-  <span *ngIf="admin"> | <a routerLink="/eventManager" routerLinkActive="active">Event Manager</a> </span>
-  <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/myEvents" routerLinkActive="active">My events</a> </span>
+  <span *ngIf="admin"> | <a routerLink="/eventManager" routerLinkActive="active">Gamer Event Manager</a> </span>
+  <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/myEvents" routerLinkActive="active">My Gamer Events</a> </span>
   <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/main" routerLinkActive="active" (click)="logout()">Logout ({{username}})</a> </span>
 </nav>
 <br>
@@ -24,7 +24,6 @@ export class AppComponent {
   // Hard-code credentials for convenience.
   admin                 = false;
   username              = '';
-  test  = '';
   token                 = '';
   message               = 'Not logged in.';
   secureData:string     = '';
