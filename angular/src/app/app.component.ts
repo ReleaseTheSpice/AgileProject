@@ -6,7 +6,8 @@ import { ApiService } from './ApiService';
 @Component({
   selector: 'app-root',
   template: `
-<h1> Martin's Event Manager </h1>
+<h1> Gold Gamer Experience </h1>
+<h3> A destination for gaming commodities and communities. </h3>
 <nav>
   <a routerLink="/main" routerLinkActive="active">Main</a> |
   <a routerLink="/forum" routerLinkActive="active">Forum</a>
