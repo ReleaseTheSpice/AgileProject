@@ -3,11 +3,21 @@ const Message = require('../Models/Message');
 class MessageRepo {
     MessageRepo() {
     }
-/*
-    async getMessage(id) {
-         let message = await Message.findOne({_id:id}).exec();
-         return   message;
-     }*/
+
+    async getNewId() {
+        //returns the next available ID for a message in the DB
+        let Messages = await this.allMessages();
+        let newID = 1;
+        let currentIDs = [];
+        for (let i=0; i<Messages.length; i++) {
+            currentIDs.push(Messages[i]._id);
+        }
+        currentIDs.sort();
+        currentIDs.forEach(function (value) {
+            if (newID == value) { newID++ }
+        });
+        return newID
+    }
 
     async allMessages() {
         let messages = await Message.find().exec();
@@ -80,7 +90,8 @@ class MessageRepo {
                         {name: editedObj.name}, // Match name.
 
                         // Set new attribute values here.
-                        {$set: { replies: editedObj.replies }});
+                        {$set: { replies: editedObj.replies,
+                                 votes: editedObj.votes }});
 
                     // No errors during update.
                     if(updated.nModified!=0) {
@@ -108,12 +119,12 @@ class MessageRepo {
             }
         }
 
-        async delete(name) {
-            console.log("Item to be deleted is: " + name);
-            let deletedItem =  await Message.find({name:name}).remove().exec();
-            console.log(deletedItem);
-            return deletedItem;
-        }
+    async delete(_id) {
+        console.log("Id of message to be deleted is: " + _id);
+        let deletedItem =  await Message.find({_id:_id}).remove().exec();
+        console.log(deletedItem);
+        return deletedItem;
+    }
 
 
 }

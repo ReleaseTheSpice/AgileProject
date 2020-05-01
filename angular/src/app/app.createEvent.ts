@@ -54,13 +54,14 @@ export class CreateEvent {
   }
 
   getDate(input) {
-    //returns 2020 Feb 20, 6:00PM
+    //returns 2020 Feb 20
     let months = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
     return (months[input.substring(5,6)] + input.substring(7,10));
   }
 
   getTime(input) {
+    //returns 6:00PM
     var hour = parseInt(input.substring(0,2));
     var min = parseInt(input.substring(3,5));
     var suffix = 'AM';
