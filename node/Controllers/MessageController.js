@@ -17,8 +17,10 @@ exports.GetMessages = async function(request, response) {
 
 // creates an message using POST
 exports.CreateMessage = async function(request, response) {
-    let newID = await _msgRepo.getNewId()
-
+    if (request.body._id) {
+        var newID = request.body._id;
+    } else { var newID = await _msgRepo.getNewId() }
+    
     // Package object up nicely using content from 'body' of the POST request.
     let tempMessageObj  = new Message( {
         "_id"       : newID,
@@ -50,43 +52,38 @@ exports.CreateMessage = async function(request, response) {
 };
 
 // adds a reply to a message using PUT
-exports.AddReply = async function(request, response) {
-    //NOTE: THIS DOES NOT JUST ADD REPLIES. IF YOU ADD A REPLY THAT ALREADY EXISTS, IT WILL BE DELETED.
+exports.Vote = async function(request, response) {
+    // adds or removes votes from a message
 
-    //FIXME//   THIS DOES NOT DO WHAT IT IS SUPPOSED TO AT ALL.  WHY DOES IT NEED AN ENTIRE MESSAGE? ISN'T ADDING A REPLY
-    //FIXME//   A COMBINATION OF MAKING A NEW MESSAGE AND ADDING IT TO THE LIST OF REPLIES OF THE EXISTING MESSAGE?
-    //FIXME//   I WOULD ASSUME THAT THE "ADDING" IS WHAT THIS FUNCTION DOES...
-    let reqReply = request.body;
+    let msgToVote = await _msgRepo.getMessageById(request.body._id)
+    if (request.body.upVote) {
+        var vote = 1;
+    } else { var vote = -1; }
 
-    if (reqReply.replies.indexOf(reqReply._id)>=0) {
-        reqReply.replies.remove(reqReply._id);
-    } else {
-        reqReply.replies.push(reqReply._id);
-    }
     // Parcel up data in a new object.
-    let tempObj  = new Event( {
-        "_id"       : newID,
-        "author"    : request.body.author,
-        "content"   : request.body.content,
-        "date"      : request.body.date,
-        "replies"   : request.body.replies,
-        "reply"     : request.body.reply,
-        "votes"     : request.body.votes
+    let tempObj  = new Message( {
+        "_id"       : msgToVote._id,
+        "author"    : msgToVote.author,
+        "content"   : msgToVote.content,
+        "date"      : msgToVote.date,
+        "replies"   : msgToVote.replies,
+        "reply"     : msgToVote.reply,
+        "votes"     : msgToVote.votes + vote
     });
 
     // Call update() function in repository with the object.
-    let responseObject = await _eventRepo.update(tempObj);
+    let responseObject = await _msgRepo.update(tempObj);
 
     // Update was successful.
     if(responseObject.errorMessage === "") {
-        response.json({ event:responseObject.obj,
+        response.json({ message:responseObject.obj,
                                             errorMessage:"" });
     }
 
     // Update not successful. Show form again.
     else {
         response.json( {
-            event:      responseObject.obj,
+            message:      responseObject.obj,
             errorMessage: responseObject.errorMessage });
     }
 };
@@ -108,7 +105,7 @@ exports.Delete = async function(request, response) {
 
     // also remove that ID from the "replies" list of other messages
     for (let i=0;i<messages.length;i++) {
-        let msg = messages[i]
+        let msg = messages[i];
         if (msg.replies.indexOf(id) >= 0) {
             messages[i].replies.remove(id)
         }

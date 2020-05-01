@@ -27,8 +27,9 @@ class MessageRepo {
     async getMessageById(ID) {
         var message = await Message.findOne({_id: ID}).exec();
         if(message) {
-            let response = { obj: message, errorMessage:"" }
-            return response;
+            // let response = { obj: message, errorMessage:"" }
+            // Removed until further notice: no need for errorMessage in Get
+            return message;
         }
         else {
             return null;
@@ -87,11 +88,10 @@ class MessageRepo {
                 if(msgObj) {
                     // Message exists so update it.
                     let updated = await Message.updateOne(
-                        {name: editedObj.name}, // Match name.
+                        {_id: editedObj._id}, // Match id.
 
                         // Set new attribute values here.
-                        {$set: { replies: editedObj.replies,
-                                 votes: editedObj.votes }});
+                        {$set: { votes: editedObj.votes }});
 
                     // No errors during update.
                     if(updated.nModified!=0) {
