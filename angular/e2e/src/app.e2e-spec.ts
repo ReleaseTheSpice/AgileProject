@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, element, by } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -9,8 +9,9 @@ describe('workspace-project App', () => {
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('myapp app is running!');
+    page.navigateTo('/main');
+    const title = element(by.css('app-root h1'));
+    expect(page.getTitleText()).toEqual('Gold Gamer Experience');
   });
 
   afterEach(async () => {
