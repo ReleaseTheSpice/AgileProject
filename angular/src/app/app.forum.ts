@@ -11,8 +11,6 @@ const BASE_URL = "http://localhost:1337/Message/";
 })
 
 export class Forum {
-    _apiService: ApiService;
-    username: string = '';
     _messagesArray: Array<any>;
     _http:HttpClient;
     _id:Number;
@@ -21,10 +19,53 @@ export class Forum {
     _message:String = "";
     _authorName:String = "";
     _content:String = "";
+    admin                 = false;
+    username              = '';
+    test  = '';
+    token                 = '';
+    message               = 'Not logged in.';
+    secureData:string     = '';
+    reqInfo:any           = null;
+    _apiService:ApiService;
+    public site='http://localhost:1337/';
 
     constructor(private http: HttpClient, private router: Router) {
         this._http = http;
+        this._apiService = new ApiService(http, this);
+        this.showContentIfLoggedIn();
         this.getAllMessages();
+    }
+
+    showContentIfLoggedIn() {
+        // Logged in if token exists in browser cache.
+        if(sessionStorage.getItem('auth_token')!=null) {
+          this.token   = sessionStorage.getItem('auth_token');
+          this.message = "The user has been logged in.";
+          this.getSecureData()
+        }
+        else {
+          this.message = "Not logged in.";
+          this.token   = ''
+        }
+      }
+    
+    getSecureData() {
+        this._apiService.getData('User/SecureAreaJwt',
+        this.secureDataCallback);
+    }
+      // Callback needs a pointer '_this' to current instance.
+    secureDataCallback(result, _this) {
+        if(result.errorMessage == "") {
+        _this.secureData = result.secureData;
+        _this.reqInfo = result.reqInfo;
+        _this.username = result.reqInfo.username;
+        if (result.reqInfo.roles.indexOf('Admin') >= 0) {
+            _this.admin = true;
+        }
+        }
+        else {
+        alert(JSON.stringify(result.errorMessage));
+        }
     }
 
     getAllMessages() {
@@ -46,7 +87,7 @@ export class Forum {
         this.http.post(BASE_URL + "CreateMessage",
             {
                 //_id:            this._id,
-                author:         "Bob", // FIX THISSSS
+                author:         this.username, // FIX THISSSS
                 content:        this._content,
                 date:           Date.now()
                 //replies:
