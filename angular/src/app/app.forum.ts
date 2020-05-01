@@ -11,10 +11,13 @@ import { Router } from '@angular/router';
 //FIXME
 export class Forum {
     _apiService: ApiService;
-    events: Array<any>;
+    messages: Array<any>;
     username: string = '';
 
     constructor(private http: HttpClient, private router: Router) {
+        this._apiService = new ApiService(http, this);
+        this.loadEvents();
+        this.loadUser();
     }
 
 }
