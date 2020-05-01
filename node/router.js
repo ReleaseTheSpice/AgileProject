@@ -26,7 +26,7 @@ module.exports = function(app){
 
     app.get('/Message/GetMessages', MessageController.GetMessages);
     app.post('/Message/CreateMessage', MessageController.CreateMessage);
-    app.put('/Message/AddReply', MessageController.AddReply);
+    app.put('/Message/Vote', MessageController.Vote);
     app.delete('/Message/Delete', MessageController.Delete);
 
     // Sign in
