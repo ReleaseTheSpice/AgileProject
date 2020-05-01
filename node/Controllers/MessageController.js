@@ -103,7 +103,7 @@ exports.Delete = async function(request, response) {
 
     // also remove that ID from the "replies" list of other messages
     for (let i=0;i<messages.length;i++) {
-        let msg = messages[i]
+        let msg = messages[i];
         if (msg.replies.indexOf(id) >= 0) {
             messages[i].replies.remove(id)
         }
