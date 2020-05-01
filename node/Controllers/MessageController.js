@@ -17,8 +17,10 @@ exports.GetMessages = async function(request, response) {
 
 // creates an message using POST
 exports.CreateMessage = async function(request, response) {
-    let newID = await _msgRepo.getNewId()
-
+    if (request.body._id) {
+        var newID = request.body._id;
+    } else { var newID = await _msgRepo.getNewId() }
+    
     // Package object up nicely using content from 'body' of the POST request.
     let tempMessageObj  = new Message( {
         "_id"       : newID,
@@ -103,7 +105,7 @@ exports.Delete = async function(request, response) {
 
     // also remove that ID from the "replies" list of other messages
     for (let i=0;i<messages.length;i++) {
-        let msg = messages[i]
+        let msg = messages[i];
         if (msg.replies.indexOf(id) >= 0) {
             messages[i].replies.remove(id)
         }

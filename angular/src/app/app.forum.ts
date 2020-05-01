@@ -100,11 +100,11 @@ export class Forum {
                     console.log("POST call successful. Inspect response.",
                         JSON.stringify(data));
                     if (data["errorMessage"] == "") {
-                        this._message = "Message added!"
+                        this._message = "Message added!";
                         this._errorMessage = ""
                     }
                     else {
-                        this._errorMessage = "Failed to add message."
+                        this._errorMessage = "Failed to add message.";
                         this._message = ""
                     }
                     // this._errorMessage = data["errorMessage"];
