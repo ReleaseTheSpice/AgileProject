@@ -1,8 +1,8 @@
 import { Component }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiService} from "./ApiService";
+import { ApiService} from "../ApiService";
 import { Router } from '@angular/router';
-import {ViewAttendees} from "./app.viewAttendees";
+import {ViewAttendees} from "../viewAttendees/app.viewAttendees";
 
 const URL = 'http://localhost:1337/';
 
