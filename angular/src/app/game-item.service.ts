@@ -11,7 +11,7 @@ export class GameItemService {
             description:"Only 14,000 US Dollar for Echoing fury one time chance only",
             imgSrc: "assets/img/fury.PNG",
             gameTitle: "Diablo2",
-            price_: "14,000",
+            price: "14,000",
             datePosted: "01/04/2015",
             isSold: false
         },
@@ -21,7 +21,7 @@ export class GameItemService {
             description:"this item is sososososososo good!!!!",
             imgSrc: "",
             gameTitle: "Maplestory",
-            price_: "1",
+            price: "1",
             datePosted: "01/04/2015",
             isSold: true
         },
@@ -31,7 +31,7 @@ export class GameItemService {
             description:"This is an epic item !!!!!!!!!!!!!!!!!!!!!!!!!!",
             imgSrc: "",
             gameTitle: "World of Warcraft",
-            price_: "15",
+            price: "15",
             datePosted: "01/04/2015",
             isSold: false
         },
@@ -41,7 +41,7 @@ export class GameItemService {
             description:"Only 14,000 US Dollar for Echoing fury one time chance only",
             imgSrc: "assets/img/fury.PNG",
             title: "Diablo2",
-            price_: "14,000",
+            price: "14,000",
             datePosted: "01/04/2015",
             isSold: false
         }];
