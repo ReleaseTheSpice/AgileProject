@@ -1,0 +1,47 @@
+
+.item-body{
+    background-color:  #29394b !important;
+    color: #53ace4 !important;
+    border-color: #53ace4 !important ;
+    border: 2px solid;
+}
+
+li{
+    background-color:  #29394b;
+    border-color: #53ace4;
+}
+
+.item-body.is-sold {
+    border-color: black;
+    color: grey;
+    border: 2px solid;
+}
+
+li.is-sold{
+    border-color: black;
+}
+
+button.is-sold{
+    background-color:  grey;
+    border-color: grey;
+}
+
+.sold{
+    display: none;
+}
+
+section:hover > .sold.is-sold {
+    display: block;
+    color: red;
+    font-size: 2em;
+    position: absolute;
+    left:0;
+    top: 5%;
+    width: 100%;
+    text-align: center;
+}
+
+section.is-sold.is-sold-hovering{
+    border-color: red;
+    display: block;
+}

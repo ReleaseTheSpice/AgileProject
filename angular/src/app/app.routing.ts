@@ -10,6 +10,7 @@ import { CreateEvent }      from "./app.createEvent";
 import { EventManager}      from "./app.eventManager";
 import { ViewAttendees }    from "./app.viewAttendees";
 import { Forum }            from "./app.forum";
+import { ProductComponent } from './product/product.component';
 
 const appRoutes: Routes = [
     //MAIN PAGES
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'eventManager', component: EventManager },
   { path: 'viewAttendees/:event', component: ViewAttendees },
   { path: 'forum', component: Forum },
+  { path: 'product', component: ProductComponent},
 
     //REDIRECT PATHS
   { path: '', redirectTo: 'main', pathMatch: 'full' },
