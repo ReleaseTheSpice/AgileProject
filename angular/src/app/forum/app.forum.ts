@@ -1,13 +1,13 @@
 import { Component }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiService} from "./ApiService";
+import { ApiService} from "../ApiService";
 import { Router } from '@angular/router';
 
 
 const BASE_URL = "http://localhost:1337/Message/";
 
 @Component({
-    templateUrl: './app.forum.html'
+    templateUrl: './forum.html'
 })
 
 export class Forum {

@@ -2,14 +2,14 @@ import { ModuleWithProviders }   from '@angular/core';
 import { Routes, RouterModule }  from '@angular/router';
 import { AppComponent }          from './app.component';
 
-import { Main }             from './app.main';
-import { MyEvents }         from './app.myEvents';
-import { Register }         from './app.register';
-import { Login }            from './app.login';
-import { CreateEvent }      from "./app.createEvent";
-import { EventManager}      from "./app.eventManager";
-import { ViewAttendees }    from "./app.viewAttendees";
-import { Forum }            from "./app.forum";
+import { Main }             from './main/app.main';
+import { MyEvents }         from './myEvents/app.myEvents';
+import { Register }         from './register/app.register';
+import { Login }            from './login/app.login';
+import { CreateEvent }      from "./createEvent/app.createEvent";
+import { EventManager}      from "./eventManager/app.eventManager";
+import { ViewAttendees }    from "./viewAttendees/app.viewAttendees";
+import { Forum }            from "./forum/app.forum";
 import { ProductComponent } from './product/product.component';
 
 const appRoutes: Routes = [

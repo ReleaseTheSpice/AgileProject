@@ -1,6 +1,6 @@
 import { Component, OnInit }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiService} from "./ApiService";
+import { ApiService} from "../ApiService";
 import { ActivatedRoute } from '@angular/router';
 
 
