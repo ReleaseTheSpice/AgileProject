@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { GameItemService} from '../game-item.service';
 
 @Component({
@@ -7,12 +7,12 @@ import { GameItemService} from '../game-item.service';
   styleUrls: ['./game-item-list.component.css']
 })
 export class GameItemListComponent implements OnInit {
-  gameItems;
+  @Input() gameItems
 
   constructor(private gameItemService: GameItemService) { }
 
   ngOnInit(): void {
-    this.gameItems = this.gameItemService.get();
+    // this.gameItems = this.gameItemService.get();
   }
 
 }

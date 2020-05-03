@@ -1,6 +1,5 @@
-<p>game-item-form works!</p>
-<div class="container row mr-0">
-    <form class="form-group row col-sm-12 "
+<div *ngIf = "showForm" class="container row mr-0 bottomRight">
+    <form class="form-group row"
           [formGroup]="form"
           (ngSubmit)="onSubmit(form.value)">
         <h2 class="col-12">Game items</h2>
@@ -17,7 +16,7 @@
         <div class="form-group row mb-0 col-12">
             <label class="form-control-label col-form-label col-sm-12" for="itemName">Item Name</label>
             <div class="col-sm-12">
-                <input class="form-control col-4 col-sm-3 col-lg-2" type="text" name="itemName" placeholder="Item Name" id="itemName" formControlName="itemName">
+                <input class="form-control col-6" type="text" name="itemName" placeholder="Item Name" id="itemName" formControlName="itemName">
                 <div *ngIf="form.get('itemName').hasError('pattern')" class="invalid">
                     Item Name has Invalid Character(s). Please remove special characters
                 </div>
@@ -27,7 +26,7 @@
         <div class="form-group row mb-0 col-12">
             <label class="form-control-label col-form-label col-sm-12" for="price">Price</label>
             <div class="col-sm-12">
-                <input class="form-control col-4 col-sm-3 col-lg-2" type="text" name="price" placeholder="$" id="price" formControlName="price">
+                <input class="form-control col-6" type="text" name="price" placeholder="$" id="price" formControlName="price">
                 <div *ngIf="form.get('price').hasError('pattern')" class="invalid">
                     price must be numbers
                 </div>
@@ -44,7 +43,7 @@
         <div class="form-group row mb-0 col-12">
             <label class="form-control-label col-form-label col-sm-12" for="description">Description</label>
             <div class="col-sm-12">
-                <textarea class="form-control col-sm-7 col-lg-4" name="description" placeholder="Description" id="description" rows="3" formControlName="description"></textarea>
+                <textarea class="form-control col-12" name="description" placeholder="Description" id="description" rows="3" formControlName="description"></textarea>
             </div>
         </div>
 
