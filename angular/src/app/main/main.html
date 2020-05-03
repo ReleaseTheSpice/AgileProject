@@ -5,12 +5,15 @@
 </head>
 
 <body>
-<div>
+
+
   <app-game-item-list [gameItems]="gameItems" ></app-game-item-list>
-  <button class= 'bottomRight btn btn-primary' type="button" label="Click" (click)="toggleChild()">Upload</button>
+  <button class= 'bottomRight btn btn-primary' type="button" label="Click" (click)="toggleChild()">Sell Item</button>
   <div>
     <app-game-item-form  [showForm]="showForm" ></app-game-item-form>
   </div>
+
+
   <table cellpadding="5" *ngFor="let product of _productsArray" >
     <tr>
       <th>Item Name:</th>
@@ -34,7 +37,7 @@
     </tr>
     <br>
   </table>
-</div>
+
 <br>
 </body>
 

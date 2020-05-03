@@ -3,13 +3,15 @@
     <div [gameSold]="gameItem.isSold" class="sold">SOLD</div>
     <div class = "card-body pb-0">
         <img class="card-img img-fluid rounded-border w-80 h-50" src="{{gameItem.imgSrc}}" alt="item">
-        <h4 class= "card-header px-0">{{gameItem.name}}</h4>
-        <p class="card-text text-truncate">{{gameItem.description}}</p>
+        <h4 class= "card-header px-0">{{gameItem.productName}}</h4>
+        <!--<p class="card-text text-truncate">{{gameItem.description}}</p>-->
     </div>
     <ul  class="list-group list-group-flush list-body">
-        <li [gameSold]="gameItem.isSold" class="list-group-item">game title: {{gameItem.gameTitle}}</li>
-        <li [gameSold]="gameItem.isSold" class="list-group-item">price: ${{gameItem.price }}</li>
-        <li [gameSold]="gameItem.isSold" class="list-group-item">posted: <{{gameItem.datePosted | date:'short'}}></li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Game Title: {{gameItem.productName}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Description: {{gameItem.description }}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Price: ${{gameItem.price }}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Quantity: {{gameItem.qty}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Date Posted: {{gameItem.date | date:'mediumDate'}}</li>
     </ul>
 
     <div class="card-body">
