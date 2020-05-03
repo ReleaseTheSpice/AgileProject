@@ -10,8 +10,9 @@ import { EventManager} from "./app.eventManager";
 import { ViewAttendees } from "./app.viewAttendees";
 import { Forum } from "./app.forum";
 import {BrowserModule} from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -34,9 +35,33 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.message).toEqual('Not logged in.');
   }));
+});
+
+  // need to make mock db
+  // FIX
+describe('Forum', () => {
   it('should get array of messages', async(() => {
     const fixture = TestBed.createComponent(Forum);
     const app = fixture.debugElement.componentInstance;
     expect(app._messagesArray).toEqual(undefined);
+  }));
+});
+
+describe('Login', () => {
+  it('should fail login', async(() => {
+    const fixture = TestBed.createComponent(Login);
+    const app = fixture.debugElement.componentInstance;
+    app.username = 'sss';
+    app.password = 'ssssssssssss';
+    app.login();
+    expect(app.errorMessage).toEqual('');
+  }));
+  it('should login', async(() => {
+    const fixture = TestBed.createComponent(Login);
+    const app = fixture.debugElement.componentInstance;
+    app.username = 'n';
+    app.password = 'n';
+    app.login();
+    expect(app.message).toEqual(undefined);
   }));
 });
