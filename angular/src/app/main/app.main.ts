@@ -26,7 +26,7 @@ export class Main {
     gameTitle:String;
     datePosted:Number = Date.now();
     isSold:Boolean = true;
-    showForm: boolean = true;
+    showForm: boolean = false;
 
     constructor(private http: HttpClient, private router: Router) {
         // Pass in http module and pointer to AppComponent.

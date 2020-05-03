@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService } from './ApiService';
 @Component({
   selector: 'app-root',
+  styles: ['h1, h3, nav { margin-left: 20px; }'],
   template: `
     <h1> Gold Gamer Experience </h1>
     <h3> A destination for gaming commodities and communities. </h3>

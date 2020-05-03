@@ -2,7 +2,7 @@
     <form class="form-group row"
           [formGroup]="form"
           (ngSubmit)="onSubmit(form.value)">
-        <h2 class="col-12">Game items</h2>
+        <h2 class="col-12">Game Items</h2>
 
         <div class="form-group row mb-0 col-12">
             <label class="col-form-label col-sm-12" for="gameTitle">Game Title</label>
@@ -28,7 +28,7 @@
             <div class="col-sm-12">
                 <input class="form-control col-6" type="text" name="price" placeholder="$" id="price" formControlName="price">
                 <div *ngIf="form.get('price').hasError('pattern')" class="invalid">
-                    price must be numbers
+                    Price must be numbers.
                 </div>
             </div>
         </div>
