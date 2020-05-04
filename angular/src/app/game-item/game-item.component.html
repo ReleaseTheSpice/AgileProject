@@ -1,0 +1,26 @@
+<section [gameSold]="gameItem.isSold"
+         class="card item-body mb-2">
+    <div [gameSold]="gameItem.isSold" class="sold">SOLD</div>
+    <div class = "card-body pb-0">
+        <img class="card-img img-fluid rounded-border w-80 h-50" src="{{gameItem.imgSrc}}" alt="item">
+        <h4 class= "card-header px-0">{{gameItem.name}}</h4>
+        <!--<p class="card-text text-truncate">{{gameItem.description}}</p>-->
+    </div>
+    <ul  class="list-group list-group-flush list-body">
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Game Title: {{gameItem.gameTitle}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Description: {{gameItem.description }}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Price: ${{gameItem.price }}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Quantity: {{gameItem.qty}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item">Date Posted: {{gameItem.date | date:'mediumDate'}}</li>
+    </ul>
+
+    <div class="card-body">
+        <div class="btn-group" aria-label="Option" >
+            <button  [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold" (click)="onBuy()" class="btn btn-info mr-2">Buy</button>
+            <button [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold" (click)="onDetail()" class="btn btn-info">Detail</button>
+        </div>
+        <div class="card-footer p-0">
+            <small class="text-muted">Last updated 3 mins ago</small>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+
+<body>
+
+
+  <app-game-item-list [gameItems]="gameItems" ></app-game-item-list>
+  <button class= 'bottomRight btn btn-primary' type="button" label="Click" (click)="toggleChild()">Sell Item</button>
+  <div>
+    <app-game-item-form  [showForm]="showForm" ></app-game-item-form>
+  </div>
+
+
+  <table cellpadding="5" *ngFor="let product of _productsArray" >
+    <tr>
+      <th>Item Name:</th>
+      <td>{{product.productName }}</td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td>{{product.description }}</td>
+    </tr>
+    <tr>
+      <th>Price:</th>
+      <td>${{product.price | number : '1.2-2'}}</td>
+    </tr>
+    <tr>
+      <th>Quantity:</th>
+      <td>{{product.qty}}</td>
+    </tr>
+    <tr>
+      <th>Date Posted:</th>
+      <td>{{product.date | date:'longTime'}}</td>
+    </tr>
+    <br>
+  </table>
+
+<br>
+</body>
+
