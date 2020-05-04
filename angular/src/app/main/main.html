@@ -5,7 +5,16 @@
 </head>
 
 <body>
+  <div class="text-center gameList">
+    <button class="btn btn-primary w-100"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for a game</button>
 
+
+    <div aria-labelledby="dropdownMenuButton " class="breadcrumb dropdown-menu pt-0 pl-4">
+      <div  class="dropdown-header  mb-0 p-0">Desktop games</div>
+      <a  class="breadcrumb-item" *ngFor="let gameTitle of lookupLists.gameTitles"
+          [textContent]="gameTitle">{{ gameTitle }}</a>
+    </div>
+  </div>
 
   <app-game-item-list [gameItems]="gameItems" ></app-game-item-list>
   <button class= 'bottomRight btn btn-primary' type="button" label="Click" (click)="toggleChild()">Sell Item</button>

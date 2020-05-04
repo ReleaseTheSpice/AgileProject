@@ -1,7 +1,8 @@
-import { Component }       from '@angular/core';
+import { Component, Inject }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService} from "../ApiService";
 import { Router } from '@angular/router';
+import {lookForGames, lookupGameList} from '../providers';
 
 const BASE_URL = "http://localhost:1337/Product/";
 
@@ -28,7 +29,9 @@ export class Main {
     isSold:Boolean = true;
     showForm: boolean = false;
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient,
+                @Inject(lookupGameList) public lookupLists,
+                private router: Router) {
         // Pass in http module and pointer to AppComponent.
         this._apiService = new ApiService(http, this);
         this._http = http;
