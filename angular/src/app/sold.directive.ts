@@ -8,10 +8,10 @@ export class SoldDirective {
     @HostBinding('class.is-sold') isSold;
     @HostBinding('class.is-sold-hovering') hovering;
     @HostListener('mouseenter') onMouseEnter(){
-        this.hovering = true
+        this.hovering = true;
     }
     @HostListener('mouseleave') onMouseLeave(){
-        this.hovering = false
+        this.hovering = false;
     }
 
     @Input() set gameSold(value){
