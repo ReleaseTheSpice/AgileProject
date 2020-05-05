@@ -13,6 +13,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {Test} from 'tslint';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -40,11 +41,16 @@ describe('AppComponent', () => {
   // need to make mock db
   // FIX
 describe('Forum', () => {
+  const fixture = TestBed.createComponent(Forum);
+  const app = fixture.debugElement.componentInstance;
   it('should get array of messages', async(() => {
-    const fixture = TestBed.createComponent(Forum);
-    const app = fixture.debugElement.componentInstance;
     expect(app._messagesArray).toEqual(undefined);
   }));
+  it('Should test messages', () => {
+    app._content = 'test';
+    app.clearMessage();
+    expect(app._content).toEqual('');
+  });
 });
 
 describe('Login', () => {
