@@ -8,14 +8,22 @@ import { GameItemService} from '../game-item.service';
 })
 export class GameItemListComponent implements OnInit {
   @Input() gameItems;
-  game;
+  game = {
+    _id:"",
+    name:"",
+    description:"",
+    imgSrc: "",
+    gameTitle: "",
+    price: "",
+    datePosted: "",
+    isSold: false
+  };
 
   constructor(private gameItemService: GameItemService) { }
 
-  haha(ev) {
-    this.game = ev;
-    console.log(this.game);
 
+  itemInfo(ev) {
+    return this.game = ev;
   }
   ngOnInit(): void {
     // this.gameItems = this.gameItemService.get();
