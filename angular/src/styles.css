@@ -2,12 +2,12 @@
 html,
 body,
 :not([style*="background-color:"]) {
-    background-color: rgb(16, 20, 23);
+    background-color: rgb(16, 20, 23) !important;
 }
 html,
 body,
 :not([style*="color:"]) {
-    color: rgb(167, 158, 139);
+    color: rgb(167, 158, 139) !important;
 }
 h1:not([style*="color:"]),
 h2:not([style*="color:"]),
