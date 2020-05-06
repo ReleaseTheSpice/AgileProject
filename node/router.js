@@ -26,6 +26,7 @@ module.exports = function(app){
     app.delete('/Event/Delete', EventController.Delete);
 
     app.get('/Message/GetMessages', MessageController.GetMessages);
+    app.get('/Message/GetMessagesById', MessageController.GetMessagesById);
     app.post('/Message/CreateMessage', MessageController.CreateMessage);
     app.put('/Message/Vote', MessageController.Vote);
     app.delete('/Message/Delete', MessageController.Delete);
