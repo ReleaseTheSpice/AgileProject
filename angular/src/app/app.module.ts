@@ -19,6 +19,7 @@ import { GameItemFormComponent } from './game-item-form/game-item-form.component
 import { GameItemListComponent } from './game-item-list/game-item-list.component';
 import { lookupGameList, lookForGames} from "./providers";
 import { SoldDirective } from "./sold.directive";
+import { ProductModalComponent } from './product-modal/product-modal.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SoldDirective } from "./sold.directive";
     GameItemComponent,
     GameItemFormComponent,
     GameItemListComponent,
-    SoldDirective
+    SoldDirective,
+    ProductModalComponent
   ],
   imports: [
     BrowserModule,

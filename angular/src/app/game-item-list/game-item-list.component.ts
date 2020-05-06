@@ -7,10 +7,16 @@ import { GameItemService} from '../game-item.service';
   styleUrls: ['./game-item-list.component.css']
 })
 export class GameItemListComponent implements OnInit {
-  @Input() gameItems
+  @Input() gameItems;
+  game;
 
   constructor(private gameItemService: GameItemService) { }
 
+  haha(ev) {
+    this.game = ev;
+    console.log(this.game);
+
+  }
   ngOnInit(): void {
     // this.gameItems = this.gameItemService.get();
   }
