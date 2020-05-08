@@ -19,12 +19,14 @@ exports.GetMessages = async function(request, response) {
 exports.GetMessagesById = async function(request, response) {
     //FIXME: This function needs unit testing.
     // request.query used to get url parameter.
-    let messagesToGet  = request.query.ids; 
+    let messagesToGet  = request.query.ids.split(","); 
     let Messages = [];
     for (let i=0;i<messagesToGet.length;i++) {
         let id = messagesToGet[i]
         let msg = await _msgRepo.getMessageById(id);
-        Messages.push(msg)
+        if (msg) {
+            Messages.push(msg);
+        }
     }
     if(Messages != null) {
         response.json({ messages:Messages, errorMessage:"" })
@@ -61,12 +63,15 @@ exports.CreateMessage = async function(request, response) {
             let threadId = request.body.replyingTo
             let replyId = newID
             var responseObject2 = await _msgRepo.toggleReply(threadId, replyId);
-        }
-        console.log("Response from replyFunc:",responseObject2);
+
+            ///////////
+            console.log("Response from replyFunc:",responseObject2);
         if (responseObject2.errorMessage != '') {
             let deletedItem  = await _msgRepo.delete(newID);
             console.log("There was a problem in adding the reply. The message has been deleted.")
+            }
         }
+        
         console.log('Saved without errors.');
         console.log(JSON.stringify(responseObject.obj));
         response.json({ message:responseObject.obj,
@@ -86,7 +91,7 @@ exports.CreateMessage = async function(request, response) {
 exports.Vote = async function(request, response) {
     // adds or removes votes from a message
 
-    let msgToVote = await _msgRepo.getMessageById(request.body._id)
+    let msgToVote = await _msgRepo.getMessageById(request.body._id);
     if (request.body.upVote) {
         var vote = 1;
     } else { var vote = -1; }

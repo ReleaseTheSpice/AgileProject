@@ -14,7 +14,7 @@ import { ProductComponent } from './product/product.component';
 
 const appRoutes: Routes = [
     //MAIN PAGES
-  { path: 'main', component: Main },
+  // { path: 'main', component: Main },
   { path: 'myEvents', component: MyEvents },
   { path: 'register', component: Register },
   { path: 'login', component: Login },
@@ -25,8 +25,8 @@ const appRoutes: Routes = [
   { path: 'product', component: ProductComponent},
 
     //REDIRECT PATHS
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: '**', component: Main }
+  { path: '', redirectTo: 'forum', pathMatch: 'full' },
+  { path: '**', component: Forum }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

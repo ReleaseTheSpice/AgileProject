@@ -2,6 +2,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService } from "../ApiService";
 import { Router } from '@angular/router';
+import {error} from "util";
 
 
 const BASE_URL = "http://localhost:1337/Message/";
@@ -14,11 +15,10 @@ const BASE_URL = "http://localhost:1337/Message/";
 export class Forum {
     msgArray: Array<any>;
     replyArray: Array<any>;
-    currentThread: object;
+    currentThread;
     currentReplies: Array<any>;
     _http:HttpClient;
     _id:Number;
-    _date:Date; //FIXME: this attribute should be set to the current date on page load.
     _errorMessage:String = "";
     _content:String = "";
     _replyContent:String = "";
@@ -29,7 +29,6 @@ export class Forum {
     secureData:string     = '';
     reqInfo:any           = null;
     _apiService:ApiService;
-    public site='http://localhost:1337/';
 
     constructor(private http: HttpClient, private router: Router) {
         this._http = http;
@@ -101,6 +100,7 @@ export class Forum {
         }
         this.msgArray = msgs;
         this.replyArray = replies;
+        this.resetCurrentThread();
     }
 
     setCurrentThread(message) {
@@ -184,6 +184,8 @@ export class Forum {
             .subscribe(result => {
                     console.log("This is the message that was voted:");
                     console.log(result);
+                    // @ts-ignore
+                    this.currentThread.votes = result.message.votes;
                     this.getAllMessages();
                 },
                 error =>{
@@ -191,6 +193,47 @@ export class Forum {
                     this._errorMessage = error;
                 })
 
+    }
+
+    resetCurrentThread() {
+        if (this.currentThread) {
+            try {
+                let id = this.currentThread._id;
+                for (let i=0;i<this.msgArray.length;i++) {
+                    let msg = this.msgArray[i];
+                    if (msg._id == id) {
+                        this.setCurrentThread(msg);
+                        var pass = true;
+                    }
+                }
+                if (!pass) { throw error}
+            } catch (e) {
+                this._errorMessage = e;
+                console.log("error in resetting current thread.");
+                console.log(e);
+            }
+        } else {
+            let errMsg = "no current thread selected.";
+            console.log(errMsg);
+            this._errorMessage = errMsg;
+        }
+    }
+
+
+    delete(msgID) {
+        let httpOptions = {
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+            "body": { _id:msgID}
+        };
+        let url = BASE_URL + 'Delete';
+        this._http.delete<any>(url, httpOptions)
+            // Get data and wait for result.
+            .subscribe(result => {
+                this.getAllMessages();
+            },error =>{
+                // Let user know about the error.
+                this._errorMessage = error;
+            })
     }
 }
 
