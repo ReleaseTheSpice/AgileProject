@@ -4,14 +4,14 @@
     <div class = "card-body pb-0">
         <!-- gameItem.imgSrc-> static imgfile for now-->
        <img class="card-img img-fluid rounded-border w-80 h-50" src="../../assets/img/fury.PNG" alt="item">
-        <h4 class= "card-header px-0">{{gameItem.name}}</h4>
+        <h4 class= "card-header px-0">{{gameItem.productName}}</h4>
         <!--<p class="card-text text-truncate">{{gameItem.description}}</p>-->
     </div>
     <ul  class="list-group list-group-flush list-body">
-        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Game Title: {{gameItem.gameTitle}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Game Title: {{gameItem.category}}</li>
         <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate ">Description: {{gameItem.description }}</li>
-        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Price: ${{gameItem.price }}</li>
-        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Quantity: {{gameItem.qty}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Price: ${{gameItem.price}}</li>
+        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Quantity: {{gameItem.quantity}}</li>
 <!--        <li [gameSold]="gameItem.isSold" class="list-group-item text-truncate">Date Posted: {{gameItem.date | date:'mediumDate'}}</li>-->
     </ul>
 

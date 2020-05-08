@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0e3423e3-52b6-46df-8485-0225b08d68c8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/game-item/game-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/game-item/game-item.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/game-item/game-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/game-item/game-item.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/product-modal/product-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/product-modal/product-modal.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../practice/gold-shopping-experience" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -66,9 +67,7 @@
       <workItem from="1588480815083" duration="2122000" />
       <workItem from="1588624420825" duration="3007000" />
       <workItem from="1588627634043" duration="2151000" />
-      <workItem from="1588709944907" duration="14564000" />
-      <workItem from="1588735563126" duration="1091000" />
-      <workItem from="1588806234989" duration="1450000" />
+      <workItem from="1588709944907" duration="14008000" />
     </task>
     <servers />
   </component>
@@ -80,10 +79,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="883" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1588386019560" />
-    <state x="791" y="196" key="FileChooserDialogImpl" timestamp="1588735560284">
+    <state x="791" y="196" key="FileChooserDialogImpl" timestamp="1588710894246">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="791" y="196" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1588735560284" />
+    <state x="791" y="196" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1588710894246" />
     <state width="803" height="221" key="GridCell.Tab.0.bottom" timestamp="1588462127797">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

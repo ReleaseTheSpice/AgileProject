@@ -34,9 +34,13 @@ exports.CreateProduct = async function(request, response) {
     // Package object up nicely using content from 'body'
     // of the POST request.
     let tempProductObj  = new Product( {
-        "_id":          request.body._id,
         "productName":  request.body.productName,
+        "category"   :  request.body.category,
+        "description":  request.body.description,
         "price":        request.body.price,
+        "date":         request.body.date,
+        "quantity":     request.body.quantity,
+        "isSold"     :  request.body.isSold,
     });
 
     // Call Repo to save 'Product' object.
