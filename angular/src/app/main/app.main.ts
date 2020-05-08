@@ -1,7 +1,8 @@
-import { Component }       from '@angular/core';
+import { Component, Inject }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService} from "../ApiService";
 import { Router } from '@angular/router';
+import {lookForGames, lookupGameList} from '../providers';
 
 const BASE_URL = "http://localhost:1337/Product/";
 
@@ -19,16 +20,18 @@ export class Main {
     _id:Number;
     name:String;
     //_errorMessage:String = "";
-    price:Number;
     _message:String = "";
-    description:String;
-    imgSrc:String;
     gameTitle:String;
-    datePosted:Number = Date.now();
-    isSold:Boolean = true;
     showForm: boolean = false;
+    productName:    string = "";
+    category:       string = "";
+    description:    string = "";
+    price:          number = 0;
+    quantity:       number = 1;
 
-    constructor(private http: HttpClient, private router: Router) {
+    constructor(private http: HttpClient,
+                @Inject(lookupGameList) public lookupLists,
+                private router: Router) {
         // Pass in http module and pointer to AppComponent.
         this._apiService = new ApiService(http, this);
         this._http = http;
@@ -64,14 +67,13 @@ export class Main {
         // This free online service receives post submissions.
         this.http.post(BASE_URL + "CreateProduct",
             {
-                _id:            this._id,
-                name:           this.name,
-                price:          this.price,
+                productName:    this.productName,
+                category:       this.category,
                 description:    this.description,
-                gameTitle:      this.gameTitle,
-                imgSrc:         this.imgSrc,
-                datePosted:     this.datePosted,
-                isSold:         this.isSold
+                price:          this.price,
+                date:           Date.now(),
+                quantity:       this.quantity,
+                isSold:         false,
             })
             .subscribe(
                 // Data is received from the post request.

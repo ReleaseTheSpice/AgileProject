@@ -9,18 +9,24 @@ export class GameItemComponent implements OnInit {
   @Input() gameItem;
   @Output() buy = new EventEmitter();
   @Output() detail = new EventEmitter();
+  gameObject: object = {};
+
+  values = '';
+  onClick(event){
+    // console.log(event);
+  }
 
   onBuy (){
     console.log("buy");
     this.buy.emit(this.gameItem);
   }
-  onDetail (){
-    console.log("detail");
-    this.detail.emit(this.gameItem);
+  onDetail(gameObj) {
+    // console.log(this.gameItem.price);
+    this.detail.emit(gameObj);
   }
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
 }

@@ -5,7 +5,15 @@
 </head>
 
 <body>
+  <div class="dropdown text-center gameList">
+    <button class="btn btn-primary w-100 dropdown-toggle"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for a game</button>
 
+    <ul aria-labelledby="dropdownMenuButton " class="w-100 m-0 pl-0 dropdown-menu pt-0 pl-4">
+      <li  class="dropdown-header  mb-0 p-0">Online games</li>
+      <li  class="list-inline breadcrumb-item" *ngFor="let gameTitle of lookupLists.gameTitles"
+          [textContent]="gameTitle">{{ gameTitle }}</li>
+    </ul>
+  </div>
 
   <app-game-item-list [gameItems]="gameItems" ></app-game-item-list>
   <button class= 'bottomRight btn btn-primary' type="button" label="Click" (click)="toggleChild()">Sell Item</button>
@@ -14,29 +22,100 @@
   </div>
 
 
-  <table cellpadding="5" *ngFor="let product of _productsArray" >
-    <tr>
-      <th>Item Name:</th>
-      <td>{{product.productName }}</td>
-    </tr>
-    <tr>
-      <th>Description:</th>
-      <td>{{product.description }}</td>
-    </tr>
-    <tr>
-      <th>Price:</th>
-      <td>${{product.price | number : '1.2-2'}}</td>
-    </tr>
-    <tr>
-      <th>Quantity:</th>
-      <td>{{product.qty}}</td>
-    </tr>
-    <tr>
-      <th>Date Posted:</th>
-      <td>{{product.date | date:'longTime'}}</td>
-    </tr>
-    <br>
-  </table>
+
+  <br>
+The default form works. not the popup css create product form :'(
+<div>
+  <b>Item: </b>
+  <td><input mdbInput type="text" name="item" [(ngModel)]="productName" required></td>
+  <br>
+  <b>Category: </b>
+  <td><input mdbInput type="text" name="category" [(ngModel)]="category" required></td>
+  <br>
+  <b>Price: </b>
+  <td><input mdbInput type="text" name="price" [(ngModel)]="price" required></td>
+  <br>
+  <b>Quantity: </b>
+  <td><input mdbInput type="text" name="quantity" [(ngModel)]="quantity" required></td>
+  <br>  
+  <b>Description: </b>
+  <td><input mdbInput type="text" name="description" [(ngModel)]="description" required></td>
+  {{errorMessage}}
+  <br>
+  <input class="submit" type="button" value="Create Product" (click)="createProduct()">
+  <br>
+</div>
+
+
+<div *ngIf = "showForm" class="container row mr-0 bottomRight">
+  <form class="form-group row"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit(form.value)">
+      <h2 class="col-12">Sell Your Item</h2>
+
+      <div class="form-group row mb-0 col-12">
+          <label class="form-control-label col-form-label col-sm-12" for="itemName">Item Name</label>
+          <div class="col-sm-12">
+              <input class="form-control col-6" type="text" name="itemName" placeholder="Item Name" id="itemName" formControlName="itemName" [(ngModel)]="productName">
+              <div *ngIf="form.get('itemName').hasError('pattern')" class="invalid">
+                  Item Name has Invalid Character(s). Please remove special characters
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group row mb-0 col-12">
+          <label class="form-control-label col-form-label col-sm-12" for="gameTitle">Game Category</label>
+          <div class="col-sm-12">
+              <input class="form-control col-6" type="text" name="gameTitle" placeholder="Category" id="gameTitle" formControlName="gameTitle" [(ngModel)]="category">
+              <div *ngIf="form.get('gameTitle').hasError('pattern')" class="invalid">
+                  Game Category has Invalid Character(s). Please remove special characters
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group row mb-0 col-12">
+          <label class="form-control-label col-form-label col-sm-12" for="price">Price</label>
+          <div class="col-sm-12">
+              <input class="form-control col-6" type="text" name="price" placeholder="$" id="price" formControlName="price" [(ngModel)]="price">
+              <div *ngIf="form.get('price').hasError('pattern')" class="invalid">
+                  Price must be numbers.
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group row mb-0 col-12">
+          <label class="form-control-label col-form-label col-sm-12" for="quantity">Quantity</label>
+          <div class="col-sm-12">
+              <input class="form-control col-6" type="text" name="quantity" placeholder="1" id="quantity" formControlName="quantity" [(ngModel)]="quantity">
+              <div *ngIf="form.get('quantity').hasError('pattern')" class="invalid">
+                  Quantity must be numbers.
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group row mb-0 col-12">
+          <label class="form-control-label col-form-label col-sm-12" for="description">Description</label>
+          <div class="col-sm-12">
+              <textarea class="form-control col-12" name="description" placeholder="Description" id="description" rows="3" formControlName="description" [(ngModel)]="description"></textarea>
+          </div>
+      </div>
+
+      <div class="form-group row col-12 mt-2">
+          <div class="col-sm-12">
+              <button class="btn btn-primary" type="submit" (click)="createProduct()"
+                      >Submit</button>
+          </div>
+      </div>
+      <div class="form-group row col-12 mt-8">
+        <div class="col-sm-12">
+            <button class="btn btn-primary" type="cancel" (click)="toggleChild()"
+                    >Cancel</button>
+        </div>
+    </div>
+  </form>
+</div>
+
+
 
 <br>
 </body>
