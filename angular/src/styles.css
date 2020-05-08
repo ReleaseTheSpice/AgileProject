@@ -63,3 +63,5 @@ input:not([style*="background-image:"]),
 textarea:not([style*="background-image:"]) {
     background-image: none !important;
 }
+
+

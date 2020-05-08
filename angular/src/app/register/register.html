@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <style>
+    p {
+    margin-left: 20px;
+    }
+
+    #info {
+      border-style: solid;
+      display: inline-block;
+      border-radius: 25px;
+      padding: 10px;
+      background-color: dimgray;
+    }
+
+    #parent {
+      text-align: center;
+      padding: 0;
+    }
+
+  </style>
+</head>
+<body>
+<p>Register a new user.</p>
+<div id="parent">
+  <p>{{errorMessage}}</p>
+<div id="info">
+  <td><input mdbInput placeholder="Username" id="username" (click)="checkValue('username')" type="text" name="username" [(ngModel)]="username" required></td>
+  <br>
+  <td><input mdbInput placeholder="Email Address" id="email" (click)="checkValue('email')" type="text" name="email" [(ngModel)]="email" required></td>
+  <br>
+  <td><input mdbInput placeholder="First Name" type="text" name="firstName" [(ngModel)]="firstName" required></td>
+  <br>
+  <td><input mdbInput placeholder="Last Name" type="text" name="lastName" [(ngModel)]="lastName" required></td>
+  <br>
+  <td><input mdbInput placeholder="Password" id="password" (click)="checkValue('password')" type="text" name="password" [(ngModel)]="password" required></td>
+  <br>
+  <td><input mdbInput placeholder="Confirm Password" id="passwordConf" (click)="checkValue('passwordConf')" type="text" name="passConf" [(ngModel)]="passConf" required></td>
+
+
+</div>
+  <p><input *ngIf="validateUser()"
+         class="submit" type="button" value="Add User" (click)="addUser()">
+  </p>
+</div>
+<b>Is this an Admin User?</b>
+<input mbdInput type="checkbox" name="admin" [(ngModel)]="admin">
+</body>
+</html>

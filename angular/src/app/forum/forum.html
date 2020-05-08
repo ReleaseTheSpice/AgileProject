@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forum</title>
+    <style>
+        p, div, table {
+        margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<p>This is the forum page!</p>
+
+<table >
+
+    <tr *ngFor="let message of _messagesArray">
+        <td style="font-size:9px">
+            {{message.date | date:'shortTime' }}
+        </td>
+        <td style="color:orange">
+            [{{message.author}}]
+        </td>
+        <td style="color:white">
+            {{message.content}}
+        </td>
+    </tr>
+
+</table>
+
+<div>
+    <table>
+        <td><input mdbInput type="text" name="content" [(ngModel)]="_content" required></td>
+        <input type="submit" value="Post Message" (click)="createMessage();clearMessage()">
+    </table>
+</div>
+{{_errorMessage}}
+</body>
+</html>

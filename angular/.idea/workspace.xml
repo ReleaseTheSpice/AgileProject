@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e8f182dd-19db-4286-b879-0247dbf798cf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/assets/img/fury.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/main-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/main-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/main-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/main-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/polyfills-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/polyfills-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/polyfills-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/polyfills-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/runtime-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/runtime-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/runtime-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/runtime-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/styles-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/styles-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/styles-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/styles-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/vendor-es2015.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/vendor-es2015.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/vendor-es5.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/myapp/vendor-es5.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-form/game-item-form.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-form/game-item-form.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-form/game-item-form.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-form/game-item-form.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item-list/game-item-list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item/game-item.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item/game-item.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item/game-item.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/game-item/game-item.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/main/app.main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/main/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/main/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product-modal/product-modal.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product-modal/product-modal.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product-modal/product-modal.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product-modal/product-modal.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product/product.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product/product.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product/product.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/product/product.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/providers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/sold.directive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/img/fury.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../node/Controllers/ProductController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../node/Data/ProductRepo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../node/Models/Product.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../node/tests/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../node/tests/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../node/tests/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/AgileProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.createEvent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/createEvent/app.createEvent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.eventManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/eventManager/app.eventManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.forum.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/forum/forum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.forum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/forum/app.forum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.login.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/app.login.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.myEvents.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myEvents/app.myEvents.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.register.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/app.register.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.viewAttendees.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/viewAttendees/app.viewAttendees.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/createEvent.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/createEvent/createEvent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/eventManager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/eventManager/eventManager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/myEvents.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/myEvents/myEvents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/register/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/viewAttendees.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/viewAttendees/viewAttendees.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/.idea/ex_authenticationRoles.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/Controllers/MessageController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../node/Controllers/MessageController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../node/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../node/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../node/router.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bK9fIs4t7GUX2vKqGMjtAKY3Hr" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../practice/gold-shopping-experience" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\Nick\Documents\AgileProject\angular\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tom41\Desktop\agile-project\angular\src\assets\img" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e8f182dd-19db-4286-b879-0247dbf798cf" name="Default Changelist" comment="" />
+      <created>1588370019738</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588370019738</updated>
+      <workItem from="1588370021090" duration="176000" />
+      <workItem from="1588456151246" duration="1784000" />
+      <workItem from="1588460703326" duration="1424000" />
+      <workItem from="1588462578880" duration="27000" />
+      <workItem from="1588473581701" duration="740000" />
+      <workItem from="1588480815083" duration="2122000" />
+      <workItem from="1588624420825" duration="3007000" />
+      <workItem from="1588627634043" duration="2151000" />
+      <workItem from="1588709944907" duration="14008000" />
+      <workItem from="1588791591875" duration="8092000" />
+      <workItem from="1588826838510" duration="249000" />
+      <workItem from="1588887069952" duration="8100000" />
+      <workItem from="1588895427717" duration="134000" />
+      <workItem from="1588895585627" duration="180000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="736" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588797157362">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="736" y="143" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1588797157362" />
+    <state x="883" y="182" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1588386019560" />
+    <state x="791" y="196" key="FileChooserDialogImpl" timestamp="1588710894246">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="791" y="196" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1588710894246" />
+    <state width="1259" height="163" key="GridCell.Tab.0.bottom" timestamp="1588801571957">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1588801571957" />
+    <state width="803" height="221" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1588462127797" />
+    <state width="1259" height="163" key="GridCell.Tab.0.center" timestamp="1588801571957">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1588801571957" />
+    <state width="803" height="221" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1588462127797" />
+    <state width="1259" height="163" key="GridCell.Tab.0.left" timestamp="1588801571957">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1588801571957" />
+    <state width="803" height="221" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1588462127797" />
+    <state width="1259" height="163" key="GridCell.Tab.0.right" timestamp="1588801571957">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1259" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1588801571957" />
+    <state width="803" height="221" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1588462127797" />
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog" timestamp="1588895406128">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="166" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588895406128" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1588793073009">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1588793073009" />
+  </component>
+</project>

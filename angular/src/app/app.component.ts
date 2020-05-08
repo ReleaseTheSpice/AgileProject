@@ -5,12 +5,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService } from './ApiService';
 @Component({
   selector: 'app-root',
+  styles: ['h1, h3, nav { margin-left: 20px; }'],
   template: `
     <h1> Gold Gamer Experience </h1>
     <h3> A destination for gaming commodities and communities. </h3>
     <nav>
       <a routerLink="/main" routerLinkActive="active">Main</a> |
-      <a routerLink="/forum" routerLinkActive="active">Forum</a>
+      <a routerLink="/forum" routerLinkActive="active">Forum</a> |
+      <a routerLink="/product" routerLinkActive="active">Game Item</a>
       <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/register" routerLinkActive="active">Register</a> </span>
       <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/login" routerLinkActive="active">Login</a> </span>
       <span *ngIf="admin"> | <a routerLink="/eventManager" routerLinkActive="active">Event Manager</a> </span>

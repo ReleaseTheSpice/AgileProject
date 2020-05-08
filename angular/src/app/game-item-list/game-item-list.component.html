@@ -1,0 +1,12 @@
+<p>game-item-list works!</p>
+
+<div class= "container">
+    <div class="row justify-content-center justify-content-sm-start">
+        <app-game-item
+                *ngFor="let gameItem of gameItems"
+                [gameItem]="gameItem"
+                (detail)="haha($event)"
+                class="col-8 col-sm-6 col-md-4 col-lg-3 col-xl-2 item"></app-game-item>
+    </div>
+</div>
+<app-product-modal [gameModal]="game"></app-product-modal>

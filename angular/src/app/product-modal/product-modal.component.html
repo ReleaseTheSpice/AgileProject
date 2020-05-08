@@ -1,0 +1,32 @@
+<p>product-modal works!</p>
+
+<!-- Modal -->
+<div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="gameItemModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gameItemModal">More Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body container m-body">
+                <div class="row">
+                    <ul class="container list-group col-6">
+                        <li class="mb-2">Item name: {{gameModal.name}}</li>
+                        <li class="mb-2">Game Title: {{gameModal.gameTitle}}</li>
+                        <li class="mb-2">Price: ${{gameModal.price }}</li>
+                        <li class="mb-2">Quantity: {{gameModal.qty}}</li>
+                    </ul>
+                    <img class="card-img img-fluid rounded-border col-6" src="../../assets/img/fury.PNG" alt="item">
+                        <div >description:{{gameModal.description}}</div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

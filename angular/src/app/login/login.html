@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <style>
+    p, div {
+    margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <b>Username: </b>
+  <td><input mdbInput type="text" name="username" [(ngModel)]="username" required></td>
+  <br>
+  <b>Password: </b>
+  <td><input mdbInput type="text" name="password" [(ngModel)]="password" required></td>
+  <br>
+  {{errorMessage}}
+  <br>
+  <input class="submit" type="button" value="Login" (click)="login()">
+</div>
+</body>
+</html>
