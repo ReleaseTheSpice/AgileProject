@@ -1,5 +1,11 @@
 const Message = require('../Models/Message');
 
+function sorter(a, b) {
+    if (a < b) return -1;  // any negative number works
+    if (a > b) return 1;   // any positive number works
+    return 0; // equal values MUST yield zero
+  }
+
 class MessageRepo {
     MessageRepo() {
     }
@@ -12,7 +18,7 @@ class MessageRepo {
         for (let i=0; i<Messages.length; i++) {
             currentIDs.push(Messages[i]._id);
         }
-        currentIDs.sort();
+        currentIDs.sort(sorter);
         currentIDs.forEach(function (value) {
             if (newID == value) { newID++ }
         });
@@ -119,8 +125,74 @@ class MessageRepo {
             }
         }
 
+    async toggleReply(threadId, replyId) {
+        //Adds a message to the list of replies for another message.
+        let response = {
+            threadId: threadId,
+            replyId: replyId,
+            errorMessage: "" };
+
+        try {
+            let msgObj = await this.getMessageById(threadId);
+            let replyObj = await this.getMessageById(replyId);
+            
+            //If the reply is already there, remove it.
+            let newReplies = msgObj.replies
+            if (newReplies.indexOf(replyId)>=0) {
+                newReplies.remove(replyId);
+            } else {
+                newReplies.push(replyId);
+            }
+            console.log("newReplies:",newReplies)
+            if (msgObj) {
+                let updated = await Message.updateOne(
+                    {_id: threadId}, // Match id.
+
+                    // Set new attribute values here.
+                    {$set: { replies: newReplies }});
+
+                    // No errors during update.
+                    if(updated.nModified!=0) {
+                        response.obj = msgObj;
+                        return response;
+                    }
+                    // Errors occurred during the update.
+                    else {
+                        response.errorMessage =
+                            "An error occurred during the update. The item did not save."
+                    };
+                    return response;
+                }
+
+                // Message not found.
+                else {
+                    response.errorMessage = "An item with this name cannot be found." };
+                    return response;
+                }
+            
+                    // An error occurred during the update.
+        catch (err) {
+            response.errorMessage = err.message;
+            return  response;
+        }
+
+    }
+
     async delete(_id) {
         console.log("Id of message to be deleted is: " + _id);
+        let msgToDelete = await this.getMessageById(_id)
+        //Delete its replies
+        for (let i=0; i<msgToDelete.replies.length; i++) {
+            let currID = msgToDelete.replies[i];
+            let deletedReply = await Message.find({_id:currID}).remove().exec();
+            console.log("DELETED REPLY:",deletedReply)
+        }
+
+        //If it is a reply, remove it from its thread
+        if (msgToDelete.reply) {
+            this.toggleReply(msgToDelete.replyingTo, _id)
+        }
+
         let deletedItem =  await Message.find({_id:_id}).remove().exec();
         console.log(deletedItem);
         return deletedItem;

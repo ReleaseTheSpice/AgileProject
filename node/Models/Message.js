@@ -3,7 +3,8 @@ var mongoose              = require('mongoose');
 // Message Schema
 var messageSchema = mongoose.Schema({
     _id: {
-        type: Number
+        type: Number,
+        min:0, max:1000000
     },
     author: {
         type: String,
@@ -23,6 +24,10 @@ var messageSchema = mongoose.Schema({
     },
     reply: {
         type: Boolean
+    },
+    replyingTo: {
+        type: Number,
+        default: -1
     },
     votes: {
         type: Number,

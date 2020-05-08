@@ -15,6 +15,27 @@ exports.GetMessages = async function(request, response) {
     }
 };
 
+// Gets only select objects.
+exports.GetMessagesById = async function(request, response) {
+    //FIXME: This function needs unit testing.
+    // request.query used to get url parameter.
+    let messagesToGet  = request.query.ids.split(","); 
+    let Messages = [];
+    for (let i=0;i<messagesToGet.length;i++) {
+        let id = messagesToGet[i]
+        let msg = await _msgRepo.getMessageById(id);
+        if (msg) {
+            Messages.push(msg);
+        }
+    }
+    if(Messages != null) {
+        response.json({ messages:Messages, errorMessage:"" })
+    }
+    else {
+        response.json( { messages:[], errorMessage:"no messages found" })
+    }
+}
+
 // creates an message using POST
 exports.CreateMessage = async function(request, response) {
     if (request.body._id) {
@@ -29,6 +50,7 @@ exports.CreateMessage = async function(request, response) {
         "date"      : request.body.date,
         "replies"   : request.body.replies,
         "reply"     : request.body.reply,
+        "replyingTo": request.body.replyingTo,
     });
 
     // Call Repo to save 'Message' object.
@@ -36,6 +58,20 @@ exports.CreateMessage = async function(request, response) {
 
     // No errors so save is successful.
     if(responseObject.errorMessage == "") {
+        //Now call the repo to toggle it as a reply
+        if (request.body.reply) {
+            let threadId = request.body.replyingTo
+            let replyId = newID
+            var responseObject2 = await _msgRepo.toggleReply(threadId, replyId);
+
+            ///////////
+            console.log("Response from replyFunc:",responseObject2);
+        if (responseObject2.errorMessage != '') {
+            let deletedItem  = await _msgRepo.delete(newID);
+            console.log("There was a problem in adding the reply. The message has been deleted.")
+            }
+        }
+        
         console.log('Saved without errors.');
         console.log(JSON.stringify(responseObject.obj));
         response.json({ message:responseObject.obj,
@@ -55,7 +91,7 @@ exports.CreateMessage = async function(request, response) {
 exports.Vote = async function(request, response) {
     // adds or removes votes from a message
 
-    let msgToVote = await _msgRepo.getMessageById(request.body._id)
+    let msgToVote = await _msgRepo.getMessageById(request.body._id);
     if (request.body.upVote) {
         var vote = 1;
     } else { var vote = -1; }
@@ -88,17 +124,6 @@ exports.Vote = async function(request, response) {
     }
 };
 
-Array.prototype.remove = function() {
-    var what, a = arguments, L = a.length, ax;
-    while (L && this.length) {
-        what = a[--L];
-        while ((ax = this.indexOf(what)) !== -1) {
-            this.splice(ax, 1);
-        }
-    }
-    return this;
-};
-
 exports.Delete = async function(request, response) {
     let id           = request.body._id;
     let messages = await _msgRepo.allMessages();
@@ -116,4 +141,15 @@ exports.Delete = async function(request, response) {
     // Some debug data to ensure the item is deleted.
     console.log(JSON.stringify(deletedItem));
     response.json( {messages:messages});
+};
+
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
 };
