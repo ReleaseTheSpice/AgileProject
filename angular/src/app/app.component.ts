@@ -11,12 +11,11 @@ import { ApiService } from './ApiService';
     <h3> A destination for gaming commodities and communities. </h3>
     <nav>
       <a routerLink="/main" routerLinkActive="active">Main</a> |
-      <a routerLink="/forum" routerLinkActive="active">Forum</a> |
-      <a routerLink="/product" routerLinkActive="active">Game Item</a>
+      <a routerLink="/forum" routerLinkActive="active">Forum</a> 
       <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/register" routerLinkActive="active">Register</a> </span>
       <span *ngIf="message == 'Not logged in.'"> | <a routerLink="/login" routerLinkActive="active">Login</a> </span>
-      <span *ngIf="admin"> | <a routerLink="/eventManager" routerLinkActive="active">Event Manager</a> </span>
-      <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/myEvents" routerLinkActive="active">My events</a> </span>
+      <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/purchases" routerLinkActive="active">Purchases</a> </span>
+      <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/sales" routerLinkActive="active">Sales</a> </span>
       <span *ngIf="message == 'The user has been logged in.'"> | <a routerLink="/main" routerLinkActive="active" (click)="logout()">Logout ({{username}})</a> </span>
     </nav>
     <br>

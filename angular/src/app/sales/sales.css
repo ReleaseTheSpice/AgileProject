@@ -1,0 +1,69 @@
+div, h3 {
+    margin-left: 20px;
+}
+
+#bproductlist {
+    text-align: right;
+}
+
+table {
+    width: 300px;
+    border-collapse: collapse;
+}
+
+#a-pagebuttons {
+    float:right;
+    margin-left: auto;
+}
+
+input[type="checkbox"] {
+    width:18px;
+    height:18px;
+    background:white;
+    border-radius:5px;
+  }
+
+input[type="button"] {
+    background:white;
+  }
+
+
+  .tableB {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .tableB td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 2px solid black;
+  }
+
+  tr td:nth-child(2) { 
+ text-align: right;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  div {
+  margin-right: 20px;
+  }
+  div, h3 {
+  margin-left: 20px;
+}
+
+.tableA  {
+  table-layout: auto; 
+  border: 2px solid black;
+  width:500px
+}
+
+.tableA td {
+  text-align: left;
+  padding: 8px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}

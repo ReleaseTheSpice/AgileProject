@@ -1,0 +1,38 @@
+<head>
+    <style>
+        div, h3 {
+    margin-left: 20px;
+    }
+    </style>
+</head>
+
+<h3> Your Purchases </h3>
+
+<div >
+    <div>
+    <table class="tableA" cellpadding="15">
+
+        <tr><th style="text-align:left">Item Name</th>
+            <th style="text-align:right">Category</th> 
+            <th style="text-align:right">Price</th> 
+            <th style="text-align:right">Qty Left</th>
+        </tr>
+
+        <tr *ngFor="let sale of myproducts">
+            <td>
+                {{sale.productName}}
+            </td>
+            <td >
+                {{sale.category }}
+            </td>
+            <td id="bproductlist">
+                ${{sale.price | number : '1.2-2'}}
+            </td>
+            <td id="bproductlist">
+                {{sale.quantity }}
+            </td>
+        </tr>
+
+    </table>
+</div>
+</div>
