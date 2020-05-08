@@ -11,7 +11,7 @@ export class ProductModalComponent implements OnInit {
   constructor() { }
 
   haha(ev) {
-    // console.log(this.gameModal);
+    console.log(this.gameModal);
   }
   ngOnInit() {
     // console.log(this.gameModal);

@@ -7,10 +7,12 @@ var productSchema    = mongoose.Schema({
 
         // _id property is created by default when data is inserted.
         productName:    {"type" : "String"},
+        category:       {"type" : "String"},
         description:    {"type" : "String"},
         price:          {"type" : Number, min:0, max:1000000},
         date:           {"type" : String, required:true},
         quantity:       {"type" : Number, min:0, max:100000},
+        isSold:         {"type" : Boolean},
     }, 
     { collection : 'products' },
     {   // Include this to eliminate the __v attribute which otherwise gets added
