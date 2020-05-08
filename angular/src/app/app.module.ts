@@ -8,10 +8,6 @@ import { AppComponent } from './app.component';
 import { Main } from "./main/app.main";
 import { Login } from "./login/app.login";
 import { Register } from "./register/app.register";
-import { MyEvents } from "./myEvents/app.myEvents";
-import { CreateEvent } from "./createEvent/app.createEvent";
-import { EventManager} from "./eventManager/app.eventManager";
-import { ViewAttendees } from "./viewAttendees/app.viewAttendees";
 import { Forum } from "./forum/app.forum";
 import { ProductComponent } from './product/product.component';
 import { GameItemComponent } from './game-item/game-item.component';
@@ -27,10 +23,6 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
     Main,
     Login,
     Register,
-    MyEvents,
-    CreateEvent,
-    EventManager,
-    ViewAttendees,
     Forum,
     ProductComponent,
     GameItemComponent,
