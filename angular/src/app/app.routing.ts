@@ -10,7 +10,7 @@ import { ProductComponent } from './product/product.component';
 
 const appRoutes: Routes = [
     //MAIN PAGES
-  // { path: 'main', component: Main },
+  { path: 'main', component: Main },
   { path: 'register', component: Register },
   { path: 'login', component: Login },
   { path: 'forum', component: Forum },
