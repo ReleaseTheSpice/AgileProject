@@ -1,45 +1,64 @@
 import { Component, Inject }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService} from "../ApiService";
-import { Router } from '@angular/router';
-import {lookForGames, lookupGameList} from '../providers';
+import { Router, NavigationEnd } from '@angular/router';
 
 const BASE_URL = "http://localhost:1337/Product/";
 
 @Component({
-    templateUrl: './main.html',
-    styleUrls: ['./main.css']
+    templateUrl: './purchases.html',
+    styleUrls: ['./purchases.css']
 })
 
-export class Main {
+
+export class Purchases {
     _apiService: ApiService;
     _errorMessage: string = '';
     username: string = '';
     _http:HttpClient;
-    gameItems : Array<any>;
+    products: Array<any>;
+    myproducts: Array<any>;
+    salesArray: Array<any>;
     _id:Number;
     name:String;
     //_errorMessage:String = "";
     _message:String = "";
     gameTitle:String;
     showForm: boolean = false;
-    productName:    string = "";
-    category:       string = "";
-    description:    string = "";
-    price:          number = 1;
-    quantity:       number = 1;
     token:      String;
     message:    String;
+    secureData:string     = '';
+    reqInfo:any           = null;
 
     constructor(private http: HttpClient,
-                @Inject(lookupGameList) public lookupLists,
                 private router: Router) {
         // Pass in http module and pointer to AppComponent.
         this._apiService = new ApiService(http, this);
         this._http = http;
-        this.loadUser();
+        this.loadUser()
         this.showContentIfLoggedIn();
-        this.getAllProducts();
+        //this.getAllSaleProducts();
+        this.router.events.subscribe((e) => {
+            if (e instanceof NavigationEnd) {
+                this.getAllSaleProducts();
+            }
+          })
+    }
+
+    ngOnInit(){
+        
+            let url = BASE_URL + 'Index'
+            this._http.get<any>(url)
+                // Get data and wait for result.
+                .subscribe(result => {
+                        this.myproducts = result.products.filter(sale => sale.buyers.includes(this.username)) // FIXMEEEEE this.username
+                    },
+    
+                    error =>{
+                        // Let user know about the error.
+                        this._errorMessage = error;
+                    })
+        
     }
 
     loadUser() {
@@ -84,12 +103,12 @@ export class Main {
         }
     }
 
-    getAllProducts() {
+    getAllSaleProducts() {
         let url = BASE_URL + 'Index'
         this._http.get<any>(url)
             // Get data and wait for result.
             .subscribe(result => {
-                    this.gameItems = result.products;
+                    this.myproducts = result.products.filter(sale => sale.buyers.includes(this.username)) // FIXMEEEEE this.username
                 },
 
                 error =>{
@@ -98,58 +117,5 @@ export class Main {
                 })
     }
 
-    createProduct() {
-        // This free online service receives post submissions.
-        if (this.username != "") {
-        this.http.post(BASE_URL + "CreateProduct",
-            {
-                productName:    this.productName,
-                category:       this.category,
-                description:    this.description,
-                price:          this.price,
-                date:           Date.now(),
-                quantity:       this.quantity,
-                isSold:         false,
-                seller:         this.username,
-            })
-            .subscribe(
-                // Data is received from the post request.
-                (data) => {
-                    // Inspect the data to know how to parse it.
-                    console.log("POST call successful. Inspect response.",
-                        JSON.stringify(data));
-                    if (data["errorMessage"] == "") {
-                        this._message = "Item added!"
-                        this._errorMessage = ""
-                        this.clearForm()
-                    }
-                    else {
-                        this._errorMessage = "Failed to add item."
-                        this._message = ""
-                    }
-                    // this._errorMessage = data["errorMessage"];
-                    this.getAllProducts();
-                },
-                // An error occurred. Data is not received.
-                error => {
-                    this._errorMessage = error;
-                });
-    }
-    }
 
-    clearForm(){
-        this.productName = "";
-        this.category = "";
-        this.description = "";
-        this.price = 0;
-        this.quantity = 1;
-    }
-
-    refresh(){
-        window.location.reload();
-    }
-
-    toggleChild(){
-        this.showForm = !this.showForm;
-    }
 }

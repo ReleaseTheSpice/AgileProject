@@ -34,13 +34,14 @@ exports.CreateProduct = async function(request, response) {
     // Package object up nicely using content from 'body'
     // of the POST request.
     let tempProductObj  = new Product( {
+        "_id":          request.body._id,
         "productName":  request.body.productName,
-        "category"   :  request.body.category,
+        "category":     request.body.category,
         "description":  request.body.description,
         "price":        request.body.price,
         "date":         request.body.date,
         "quantity":     request.body.quantity,
-        "isSold"     :  request.body.isSold,
+        "seller":       request.body.seller,
     });
 
     // Call Repo to save 'Product' object.
@@ -78,10 +79,18 @@ exports.Update = async function(request, response) {
     // Parcel up data in a 'Product' object.
     let tempProductObj  = new Product( {
         _id: productID,
-        //productName:    request.body.productName,
-        //price:          request.body.price,
+        productName:    request.body.productName,
+        category:       request.body.category,
+        description:    request.body.description,
+        price:          request.body.price,
+        date:           request.body.date,
         quantity:       request.body.quantity,
+        isSold:         request.body.isSold,
+        buyers:         request.body.buyers,
+        seller:         request.body.seller,
     });
+    console.log(request.body.quantity)
+    console.log(request.body.buyers)
 
     // Call update() function in repository with the object.
     let responseObject = await _productRepo.update(tempProductObj);

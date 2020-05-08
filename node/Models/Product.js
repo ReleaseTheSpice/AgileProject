@@ -13,6 +13,8 @@ var productSchema    = mongoose.Schema({
         date:           {"type" : String, required:true},
         quantity:       {"type" : Number, min:0, max:100000},
         isSold:         {"type" : Boolean},
+        buyers:         {"type" : Array},
+        seller:         {"type" : "String"},
     }, 
     { collection : 'products' },
     {   // Include this to eliminate the __v attribute which otherwise gets added
