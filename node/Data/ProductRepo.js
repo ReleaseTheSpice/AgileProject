@@ -21,7 +21,7 @@ class ProductRepo {
         try {
             // Checks if model conforms to validation rules that we set in Mongoose.
             var error = await productObj.validateSync();
-    
+            
             // The model is invalid. Return the object and error message. 
             if(error) {
                 let response = {

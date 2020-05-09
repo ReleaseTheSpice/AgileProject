@@ -1,11 +1,15 @@
+section {
+    background-color: gray;
+}
+
 .bottomRight {
     position: fixed;
-    bottom: 7%;
-    right: 50px;
+    bottom: 70px;
+    right: 20px;
+    width: 300px;
     border: 3px solid #73AD21;
     background-color: greenyellow;
-    width: 300px;
-}
+} 
 
 input.ng-invalid:not(.ng-pristine) {
     border: 3px solid #d93a3e;
@@ -19,4 +23,6 @@ button[type=submit]:disabled {
     background-color: #333;
     color: #666;
 }
+
+
 

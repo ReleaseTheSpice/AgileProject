@@ -38,4 +38,9 @@ export class GameItemFormComponent implements OnInit {
 
   }
 
+  toggleChild(){
+    this.showForm = !this.showForm;
+  }
+
+
 }

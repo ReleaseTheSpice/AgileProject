@@ -2,18 +2,6 @@ section {
     background-color: gray;
 }
 
-/* .bottomRight {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 100px;
-    border: 3px solid #73AD21;
-}
-
-.list-inline{
-    display: inline-block;
-} */
-
 .bottomRight {
     position: fixed;
     bottom: 20px;
@@ -22,15 +10,6 @@ section {
     border: 3px solid #73AD21;
     background-color: greenyellow;
 } 
-
-/* .bottomRight {
-    position: fixed;
-    top: 3%;
-    right: 50px;
-    border: 3px solid #73AD21;
-    background-color: greenyellow;
-    width: 300px;
-} */
 
 input.ng-invalid:not(.ng-pristine) {
     border: 3px solid #d93a3e;
