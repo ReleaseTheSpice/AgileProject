@@ -44,6 +44,9 @@ exports.CreateProduct = async function(request, response) {
         "seller":       request.body.seller,
     });
 
+    console.log(request.body.productName)
+    console.log(request.body.description)
+
     // Call Repo to save 'Product' object.
     let responseObject = await _productRepo.create(tempProductObj);
 
