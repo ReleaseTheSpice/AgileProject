@@ -21,7 +21,7 @@ class ProductRepo {
         try {
             // Checks if model conforms to validation rules that we set in Mongoose.
             var error = await productObj.validateSync();
-    
+            
             // The model is invalid. Return the object and error message. 
             if(error) {
                 let response = {
@@ -73,13 +73,14 @@ class ProductRepo {
             if(productObject) {
     
                 // Product exists so update it.
-                let updated = await Product.updateOne(
+                let updated = await Product.updateMany(
                     { _id: editedObj.id}, // Match id.
     
                     // Set new attribute values here.
                     //{$set: { productName: editedObj.productName }},
-                    //{$set: { price: editedObj.price }});
-                    {$set: { quantity: editedObj.quantity }}); 
+                    {$set: { quantity: editedObj.quantity },
+                     $addToSet: { buyers: editedObj.buyers },
+                    });
     
                 // No errors during update.
                 if(updated.nModified!=0) {

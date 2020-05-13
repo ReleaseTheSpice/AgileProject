@@ -4,7 +4,7 @@
     <div class = "card-body pb-0">
         <!-- gameItem.imgSrc-> static imgfile for now-->
        <img class="card-img img-fluid rounded-border w-80 h-50" src="../../assets/img/fury.PNG" alt="item">
-        <h4 class= "card-header px-0">{{gameItem.productName}}</h4>
+        <h4 class= "card-header border-0">{{gameItem.productName}}</h4>
         <!--<p class="card-text text-truncate">{{gameItem.description}}</p>-->
     </div>
     <ul  class="list-group list-group-flush list-body">
@@ -17,7 +17,7 @@
 
     <div class="card-body">
         <div class="btn-group" aria-label="Option" >
-            <button  [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold" (click)="onBuy()" class="btn btn-info mr-2">Buy</button>
+            <button  [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold" (click)="buyProduct(gameItem._id,gameItem.productName, gameItem.category, gameItem.description, gameItem.price, gameItem.date, gameItem.quantity);refresh()" class="btn btn-info mr-2">Buy</button>
             <button [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold"
                     (click)="onDetail(gameItem)" class="btn btn-info"  data-toggle="modal"  data-target="#detail">Detail</button>
         </div>
@@ -27,4 +27,3 @@
     </div>
 
 </section>
-
