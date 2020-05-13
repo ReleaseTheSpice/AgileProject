@@ -3,24 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <title>Register</title>
-  <style>
-    p, div {
-    margin-left: 20px;
-    }
-  </style>
 </head>
 <body>
-<p>Log in here!  If you don't have an account, please register one above! </p>
-<div>
-  <b>Username: </b>
-  <td><input mdbInput type="text" name="username" [(ngModel)]="username" required></td>
-  <br>
-  <b>Password: </b>
-  <td><input mdbInput type="text" name="password" [(ngModel)]="password" required></td>
-  <br>
-  {{errorMessage}}
-  <br>
-  <input class="submit" type="button" value="Login" (click)="login()">
-</div>
+
+<form class="form-group">
+  <fieldset class="form-group">
+    <legend>Log in here!  If you don't have an account, please register first!</legend>
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="username">Username</label>
+      <div class="col-sm-6">
+        <input class="form-control " mdbInput name="username" [(ngModel)]="username" required
+               type="text" id="username" placeholder="User Name">
+      </div>
+
+    </div><!-- form-group -->
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="Password">Password</label>
+      <div class=" col-sm-6">
+        <input class="form-control " mdbInput type="text" name="password" [(ngModel)]="password"
+               required id="Password" placeholder="Password">
+      </div>
+      <small class="form-text col-12">{{errorMessage}}</small>
+
+    </div>
+
+    <div class="form-group row justify-content-end justify-content-sm-start mx-4">
+      <div class="col-auto">
+        <button class="btn submit" type="button" value="Login" (click)="login()">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
 </body>
 </html>
+
+<!--      <b>Username: </b>-->
+<!--      <td><input mdbInput type="text" name="username" [(ngModel)]="username" required></td>-->
+<!--      <b>Password: </b>-->
+<!--      <td><input mdbInput type="text" name="password" [(ngModel)]="password" required></td>-->
+<!--      <br>-->
+<!--      {{errorMessage}}-->
+<!--      <br>-->
+<!--      <input class="submit" type="button" value="Login" (click)="login()">-->

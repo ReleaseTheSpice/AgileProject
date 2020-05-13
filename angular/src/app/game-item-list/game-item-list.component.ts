@@ -18,7 +18,7 @@ export class GameItemListComponent implements OnInit {
     isSold: false,
   };
 
-  constructor(private gameItemService: GameItemService) { }
+  constructor() { }
 
   haha(ev) {
     this.game = ev;

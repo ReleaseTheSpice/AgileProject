@@ -3,42 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <title>Register</title>
-  <style>
-    p, div {
-    margin-left: 20px;
-    }
-  </style>
+
 </head>
 <body>
-<p>Register a new user below.</p>
-<div>
-  <b>Username: </b>
-  <td><input mdbInput type="text" name="username" [(ngModel)]="username" required></td>
-  <br>
-  <b>Email: </b>
-  <td><input mdbInput type="text" name="email" [(ngModel)]="email" required></td>
-  <br>
-  <b>First Name: </b>
-  <td><input mdbInput type="text" name="firstName" [(ngModel)]="firstName" required></td>
-  <br>
-  <b>Last Name: </b>
-  <td><input mdbInput type="text" name="lastName" [(ngModel)]="lastName" required></td>
-  <br>
-  <b>Password: </b>
-  <td><input mdbInput type="text" name="password" [(ngModel)]="password" required></td>
-  <br>
-  <b>Confirm Password: </b>
-  <td><input mdbInput type="text" name="passConf" [(ngModel)]="passConf" required></td>
-  <br>
-  {{errorMessage}}
-  <br>
-  <b>Is this an Admin User?</b>
-  <input mbdInput type="checkbox" name="admin" [(ngModel)]="admin">
-  <br>
-  <br>
-  <input *ngIf="validateUser()"
-         class="submit" type="button" value="Add User" (click)="addUser()">
 
-</div>
-</body>
-</html>
+<form class="form-group">
+  <fieldset class="form-group">
+    <legend>Register Here!</legend>
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="username">Username</label>
+      <div class="col-sm-6">
+        <input class="form-control " mdbInput name="username" [(ngModel)]="username" required
+               type="text" id="username" placeholder="User Name">
+      </div>
+    </div><!-- form-group -->
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="email">Email</label>
+      <div class="col-sm-6">
+        <input class="form-control " mdbInput name="email" [(ngModel)]="email" required
+               type="text" id="email" placeholder="email">
+      </div>
+    </div><!-- form-group -->
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="firstName">firstName</label>
+      <div class="col-sm-6">
+        <input class="form-control " mdbInput name="firstName" [(ngModel)]="firstName" required
+               type="text" id="firstName" placeholder="first name">
+      </div>
+    </div><!-- form-group -->
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="lastName">lastName</label>
+      <div class="col-sm-6">
+        <input class="form-control " mdbInput name="lastName" [(ngModel)]="lastName" required
+               type="text" id="lastName" placeholder="last name">
+      </div>
+    </div><!-- form-group -->
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="Password">Password</label>
+      <div class=" col-sm-6">
+        <input class="form-control " mdbInput type="text" name="password" [(ngModel)]="password"
+               required id="Password" placeholder="Password">
+      </div>
+    </div> <!-- form-grp -->
+
+
+
+    <div class="form-group row mx-4 ">
+      <label class="col-form-label col-12" for="passConf">Password Confirm</label>
+      <div class=" col-sm-6">
+        <input class="form-control " mdbInput type="text" name="passConf" [(ngModel)]="passConf"
+               required id="passConf" placeholder="Password Confirm">
+      </div>
+      <small class="form-text col-12">{{errorMessage}}</small>
+    </div> <!-- form-grp -->
+
+    <div class="custom-control custom-switch row mx-5">
+      <input type="checkbox" class="custom-control-input" id="isAdmin" mbdInput
+             name="admin" [(ngModel)]="admin">
+      <label class="custom-control-label" for="isAdmin">Is this an Admin User?</label>
+    </div>
+
+
+
+    <div class="form-group row justify-content-end justify-content-sm-start mx-4">
+      <div class="col-auto">
+        <button class="btn submit" *ngIf="validateUser()"
+                type="button" value="Add User" (click)="addUser();refresh()" >Register</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
+
+
+
+
+
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<b>Username: </b>-->
+<!--<td><input mdbInput type="text" name="username" [(ngModel)]="username" required></td>-->
+<!--<b>Email: </b>-->
+<!--<td><input mdbInput type="text" name="email" [(ngModel)]="email" required></td>-->
+<!--<b>First Name: </b>-->
+<!--<td><input mdbInput type="text" name="firstName" [(ngModel)]="firstName" required></td>-->
+<!--<b>Password: </b>-->
+<!--<td><input mdbInput type="text" name="password" [(ngModel)]="password" required></td>-->
+<!--<br>-->
+<!--<b>Confirm Password: </b>-->
+<!--<td><input mdbInput type="text" name="passConf" [(ngModel)]="passConf" required></td>-->
+<!--<br>-->
+<!--{{errorMessage}}-->
+<!--<br>-->
+<!--  <b>Is this an Admin User?</b>-->
+<!--  <input mbdInput type="checkbox" name="admin" [(ngModel)]="admin">-->
+<!--  <br>-->
+<!--  <br>-->
+<!--  <input *ngIf="validateUser()"-->
+<!--         class="submit" type="button" value="Add User" (click)="addUser()">-->

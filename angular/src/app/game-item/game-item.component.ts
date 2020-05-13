@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
 
 const BASE_URL = "http://localhost:1337/Product/";
 
+
 @Component({
   selector: 'app-game-item',
   templateUrl: './game-item.component.html',
   styleUrls: ['./game-item.component.css']
 })
-
 
 export class GameItemComponent implements OnInit {
   _apiService: ApiService;
@@ -51,6 +51,7 @@ export class GameItemComponent implements OnInit {
   onDetail(gameObj) {
     // console.log(this.gameItem.price);
     this.detail.emit(gameObj);
+    return gameObj;
   }
 
   ngOnInit(): void {
