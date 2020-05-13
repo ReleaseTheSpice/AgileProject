@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 html,
-body,
-:not([style*="background-color:"]) {
+body :not(td),
+:not([style="background-color:"]) :not(td) {
     background-color: rgb(16, 20, 23) !important;
 }
 html,
@@ -64,4 +64,6 @@ textarea:not([style*="background-image:"]) {
     background-image: none !important;
 }
 
-
+td#content.msg:hover {
+    background-image: radial-gradient(darkgoldenrod 0%, transparent 70%);
+}

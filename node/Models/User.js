@@ -21,6 +21,14 @@ var userSchema = mongoose.Schema({
   },
   roles: {
     type: Array
+  },
+  votedUp: {
+    type: Array,
+    default: []
+  },
+  votedDown: {
+    type: Array,
+    default: []
   }
 
 });

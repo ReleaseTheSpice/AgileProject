@@ -1,11 +1,23 @@
 {
+    "nyc": {
+        "all": true,
+        "cwd": "../",
+        "include": [
+            "./Controllers/*.js"
+        ]
+    },
     "scripts": {
-        "test": "mocha"
+        "test": "nyc mocha --timeout=5000",
+        "coverage": "nyc --all npm run test"
     },
     "dependencies": {
         "chai": "^4.2.0",
         "chai-http": "^4.3.0",
         "express": "^4.17.1",
-        "mocha": "^7.1.2"
+        "mocha": "^7.1.2",
+        "opts": "^1.2.7"
+    },
+    "devDependencies": {
+        "nyc": "^15.0.1"
     }
 }

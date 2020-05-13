@@ -44,8 +44,7 @@
         <td class="liveMessenger">
             <table>
                 <tr *ngFor="let message of msgArray" (click)="setCurrentThread(message)"
-                    class="message" id="{{message._id}}" (mouseover)="changecolor(message._id)">
-                    <!--FIXME: I CANNOT GET THIS TO WORK. I JUST WANT IT TO HAVE SOME SORT OF EFFECT WHEN I HOVER OVER IT.-->
+                    class="message" id="{{message._id}}">
 
                     <td class="msg" style="font-size:9px">
                         {{message.date | date:'shortTime' }}
@@ -55,7 +54,7 @@
                                (click)="delete(message._id)" style="color:goldenrod">
                         [{{message["author"]}}]
                     </td>
-                    <td class="msg" style="color:white">
+                    <td class="msg" id="content" style="color:white;">
                         {{message.content}}
                     </td>
                     <td class="votes">
@@ -117,7 +116,7 @@
                     </td>
                     <td class="msg" style="color:orange">
                         <input *ngIf="message['author']==username" class="del" value="🗑️"
-                               (click)="delete(message._id)" style="color:goldenrod">
+                               (click)="delete(message._id)">
                         [{{message.author}}]
                     </td>
                     <td class="msg" style="color:white">
