@@ -8,7 +8,15 @@ import { GameItemService} from '../game-item.service';
 })
 export class GameItemListComponent implements OnInit {
   @Input() gameItems;
-  game;
+  game = {
+    productName: "",
+    category: "",
+    description: "",
+    price: "",
+    date: "",
+    quantity: "",
+    isSold: false,
+  };
 
   constructor(private gameItemService: GameItemService) { }
 

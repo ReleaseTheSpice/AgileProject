@@ -13,13 +13,14 @@
             <div class="modal-body container m-body">
                 <div class="row">
                     <ul class="container list-group col-6">
-                        <li class="mb-2">Item name: {{gameModal.name}}</li>
-                        <li class="mb-2">Game Title: {{gameModal.gameTitle}}</li>
+                        <li class="mb-2">Item name: {{gameModal.productName}}</li>
+                        <li class="mb-2">Game Title: {{gameModal.category}}</li>
                         <li class="mb-2">Price: ${{gameModal.price }}</li>
-                        <li class="mb-2">Quantity: {{gameModal.qty}}</li>
+                        <li class="mb-2">Quantity: {{gameModal.quantity}}</li>
+                        <li class="mb-2">Posted: {{gameModal.date| date:'short'}}</li>
+                        <li class="mb-2">Description: {{gameModal.description}}</li>
                     </ul>
                     <img class="card-img img-fluid rounded-border col-6" src="../../assets/img/fury.PNG" alt="item">
-                        <div >description:{{gameModal.description}}</div>
                 </div>
 
             </div>
