@@ -1,14 +1,15 @@
 {
     "nyc": {
+        "check-coverage": true,
         "all": true,
         "cwd": "../",
-        "include": [
-            "./Controllers/*.js"
+        "exclude": [
+            "tests/*",
+            "coverage/*"
         ]
     },
     "scripts": {
-        "test": "nyc mocha --timeout=5000",
-        "coverage": "nyc --all npm run test"
+        "test": "nyc --reporter=html mocha --timeout=5000"
     },
     "dependencies": {
         "chai": "^4.2.0",
