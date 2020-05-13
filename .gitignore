@@ -1,11 +1,9 @@
-/node/node_modules/
-/angular/node_modules/
-/node/tests/node_modules/
-/node/tests/.nyc_output/
-
-/node/.nyc_output/
 /.idea/
+
+/angular/node_modules/
 /angular/.idea/workspace.xml
 
-/node/tests/coverage/
-#not sure if this is important ^
+/node/node_modules/
+/node/.nyc_output/
+
+/node/tests/node_modules/
