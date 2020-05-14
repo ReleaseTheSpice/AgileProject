@@ -30,9 +30,25 @@ export class Register {
     return this.password == this.passConf;
   }
 
+    validEmail() {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    }
+
   addUser() {
-    // This free online service receives post submissions.
-    this.http.post("http://localhost:1337/User/RegisterUser",
+      if (this.username.length < 3) {
+          return this.errorMessage = "Username must be more than 3 characters."
+      }
+      if (this.password.length <= 6) {
+          this.passConf = "";
+          this.password = "";
+          return this.errorMessage = "Password must be at least 7 characters."
+      }
+      if (!(this.validEmail())) {
+          this.email = '';
+          return this.errorMessage = "Invalid email address. Please try again."
+      }
+      // This free online service receives post submissions.
+      this.http.post("http://localhost:1337/User/RegisterUser",
       {
         username: this.username,
         email: this.email,
