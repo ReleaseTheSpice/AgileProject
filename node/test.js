@@ -1,9 +1,9 @@
 // Import the dependencies for testing
 var chai     = require('chai')
 var chaiHttp = require('chai-http');
-var app      = require('../app.js');
+var app      = require('./app.js');
 //
-const Message           = require('../Models/Message');
+const Message           = require('./Models/Message');
 
 
 // Configure chai.
