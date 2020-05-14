@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
+        <span class="strong">51.61% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/20</span>
+        <span class='fraction'>16/31</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">12.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>1/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">40% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/5</span>
+        <span class='fraction'>2/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
+        <span class="strong">48.28% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/18</span>
+        <span class='fraction'>14/29</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -105,7 +105,25 @@
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
 <a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,6 +156,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,6 +196,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// @ts-ignore
@@ -196,9 +232,25 @@ export class Register {
 <span class="cstat-no" title="statement not covered" >    return this.password == this.passConf;</span>
   }
 &nbsp;
+<span class="fstat-no" title="function not covered" >    validEmail(</span>) {
+<span class="cstat-no" title="statement not covered" >        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);</span>
+    }
+&nbsp;
 <span class="fstat-no" title="function not covered" >  addUser(</span>) {
-    // This free online service receives post submissions.
-<span class="cstat-no" title="statement not covered" >    this.http.post("http://localhost:1337/User/RegisterUser",</span>
+<span class="cstat-no" title="statement not covered" >      if (this.username.length &lt; 3) {</span>
+<span class="cstat-no" title="statement not covered" >          return this.errorMessage = "Username must be more than 3 characters."</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (this.password.length &lt;= 6) {</span>
+<span class="cstat-no" title="statement not covered" >          this.passConf = "";</span>
+<span class="cstat-no" title="statement not covered" >          this.password = "";</span>
+<span class="cstat-no" title="statement not covered" >          return this.errorMessage = "Password must be at least 7 characters."</span>
+      }
+<span class="cstat-no" title="statement not covered" >      if (!(this.validEmail())) {</span>
+<span class="cstat-no" title="statement not covered" >          this.email = '';</span>
+<span class="cstat-no" title="statement not covered" >          return this.errorMessage = "Invalid email address. Please try again."</span>
+      }
+      // This free online service receives post submissions.
+<span class="cstat-no" title="statement not covered" >      this.http.post("http://localhost:1337/User/RegisterUser",</span>
       {
         username: this.username,
         email: this.email,
@@ -221,7 +273,9 @@ export class Register {
 &nbsp;
         });
   }
-&nbsp;
+<span class="fstat-no" title="function not covered" >    refresh(</span>) {
+<span class="cstat-no" title="statement not covered" >        window.location.reload();</span>
+    }
 }
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -229,7 +283,7 @@ export class Register {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed May 13 2020 19:35:53 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 14 2020 11:14:22 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

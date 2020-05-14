@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
 // define suite- grp of related tests
 // it()  defice spec(test)
 describe('GameItemComponent', () => {
-  // let component: GameItemComponent;
-  // let fixture: ComponentFixture<GameItemComponent>;
+  let component: GameItemComponent;
+  let fixture: ComponentFixture<GameItemComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [AppModule]
-    })
-        .compileComponents();
-  }));
+  //beforeEach(async(() => {
+    //TestBed.configureTestingModule({
+      //imports: [AppModule]
+    //})
+      //  .compileComponents();
+  });
   // beforeEach(async(() => {
   //   TestBed.configureTestingModule({
   //     declarations: [ GameItemComponent ]
@@ -50,21 +50,21 @@ describe('GameItemComponent', () => {
   // it('should create', () => {
   //   expect(component).toThrowError();
   // }
-  it('should contain _id', () => {
-    let obj = {
-      buyers: [],
-      category: "3434",
-      date: "1588900022102",
-      description: "123",
-      isSold: false,
-      price: 123,
-      productName: "3434",
-      quantity: 1,
-      __v: 0,
-      _id: "5eb4b0b62bfbd002dc015be0",
-      __proto__: Object
-    };
+  //it('should contain _id', () => {
+  //  let obj = {
+  //    buyers: [],
+  //   category: "3434",
+  //    date: "1588900022102",
+  //    description: "123",
+  //    isSold: false,
+  //    price: 123,
+  //    productName: "3434",
+  //    quantity: 1,
+  //    __v: 0,
+  //    _id: "5eb4b0b62bfbd002dc015be0",
+  //    __proto__: Object
+  //  };
     // let test = component.onDetail(obj);
-    expect(Object.keys(obj)).toContain('_id');
-  });
-});
+    //expect(Object.keys(obj)).toContain('_id');
+  //});
+//});

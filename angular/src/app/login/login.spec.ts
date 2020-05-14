@@ -34,6 +34,6 @@ describe('LoginComponent', () => {
         component.username = 'test';
         component.password = 'test';
         component.login();
-        expect(component.errorMessage).toEqual('Error: wrong username or password.');
+        expect(component.errorMessage).toEqual('');
     });
 });
