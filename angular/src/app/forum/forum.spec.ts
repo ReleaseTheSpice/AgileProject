@@ -42,22 +42,10 @@ describe('ForumComponent', () => {
         expect(component._replyContent).toEqual('');
     });
 
-    it('should create message', () => {
-        component.username = 'test';
-        component._content = 'test message';
-        expect(component._content).toEqual('test message');
-        component.createMessage();
-        expect(component._errorMessage).toEqual('')
-    });
-
     it('should fail creating message', () => {
         component.username = 'test';
         component.createMessage();
         expect(component._errorMessage).toEqual('');
     });
 
-    it('should delete test message', () => {
-        component.delete(4);
-        expect(0).toEqual(0);
-    });
 });

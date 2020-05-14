@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">51.61% </span>
+        <span class="strong">77.42% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/31</span>
+        <span class='fraction'>24/31</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">12.5% </span>
+        <span class="strong">62.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/8</span>
+        <span class='fraction'>5/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/7</span>
+        <span class='fraction'>4/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">48.28% </span>
+        <span class="strong">75.86% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/29</span>
+        <span class='fraction'>22/29</span>
       </div>
     </div>
     <p class="quiet">
@@ -133,40 +133,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -225,25 +225,25 @@ export class Register {
   validateUser() {
     let userList = [this.username, this.email, this.firstName, this.lastName, this.password];
     for (let i=0; i&lt;userList.length; i++) {
-      <span class="missing-if-branch" title="else path not taken" >E</span>if (userList[i] == '') {
+      if (userList[i] == '') {
         return false;
       }
     }
-<span class="cstat-no" title="statement not covered" >    return this.password == this.passConf;</span>
+    return this.password == this.passConf;
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    validEmail(</span>) {
-<span class="cstat-no" title="statement not covered" >        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);</span>
+    validEmail() {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  addUser(</span>) {
-<span class="cstat-no" title="statement not covered" >      if (this.username.length &lt; 3) {</span>
-<span class="cstat-no" title="statement not covered" >          return this.errorMessage = "Username must be more than 3 characters."</span>
+  addUser() {
+      if (this.username.length &lt; 3) {
+          return this.errorMessage = "Username must be more than 3 characters."
       }
-<span class="cstat-no" title="statement not covered" >      if (this.password.length &lt;= 6) {</span>
-<span class="cstat-no" title="statement not covered" >          this.passConf = "";</span>
-<span class="cstat-no" title="statement not covered" >          this.password = "";</span>
-<span class="cstat-no" title="statement not covered" >          return this.errorMessage = "Password must be at least 7 characters."</span>
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (this.password.length &lt;= 6) {
+          this.passConf = "";
+          this.password = "";
+          return this.errorMessage = "Password must be at least 7 characters."
       }
 <span class="cstat-no" title="statement not covered" >      if (!(this.validEmail())) {</span>
 <span class="cstat-no" title="statement not covered" >          this.email = '';</span>
@@ -283,7 +283,7 @@ export class Register {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 14 2020 11:14:22 GMT-0700 (Pacific Daylight Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu May 14 2020 15:10:22 GMT-0700 (Pacific Daylight Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>
