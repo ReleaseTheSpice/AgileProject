@@ -1,4 +1,4 @@
 language: node_js
 node_js:
  - "stable"
-script: cd node/tests; npm test;
+script: cd node; npm test;
