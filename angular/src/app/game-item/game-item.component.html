@@ -1,4 +1,4 @@
-<section  [gameSold]="gameItem.isSold" (click)="onClick($event.target.textContent)"
+<section  [gameSold]="gameItem.isSold"
          class="card item-body mb-2">
     <div [gameSold]="gameItem.isSold" class="sold">SOLD</div>
     <div class = "card-body pb-0">
@@ -19,7 +19,7 @@
         <div class="btn-group" aria-label="Option" >
             <button  [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold" (click)="buyProduct(gameItem._id,gameItem.productName, gameItem.category, gameItem.description, gameItem.price, gameItem.date, gameItem.quantity);refresh()" class="btn btn-info mr-2">Buy</button>
             <button [disabled]="gameItem.isSold == true" [gameSold]="gameItem.isSold"
-                    (click)="onDetail(gameItem)" class="btn btn-info"  data-toggle="modal"  data-target="#detail">Detail</button>
+                    (click)="onDetail(gameItem)" class="btn btn-info detail"  data-toggle="modal"  data-target="#detail">Detail</button>
         </div>
         <div class="card-footer p-0">
             <small class="text-muted">Last updated 3 mins ago</small>
