@@ -4,3 +4,5 @@ node_js:
 script: cd node; npm install nyc; npm test;
 services:
  - mongodb
+after_success:
+ - echo "Done"
