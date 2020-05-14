@@ -11,6 +11,7 @@ const BASE_URL = "http://localhost:1337/Product/";
     styleUrls: ['./main.css']
 })
 
+// tslint:disable-next-line:component-class-suffix
 export class Main {
     _apiService: ApiService;
     _errorMessage: string = '';

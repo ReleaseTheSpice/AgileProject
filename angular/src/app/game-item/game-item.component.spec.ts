@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameItemComponent } from './game-item.component';
+import { AppModule } from '../app.module';
 
 describe('GameItemComponent', () => {
   let component: GameItemComponent;
@@ -8,7 +9,7 @@ describe('GameItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameItemComponent ]
+      imports: [AppModule]
     })
         .compileComponents();
   }));
@@ -20,6 +21,6 @@ describe('GameItemComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toThrowError();
   });
 });

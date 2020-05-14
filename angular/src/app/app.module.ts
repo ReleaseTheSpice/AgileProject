@@ -40,7 +40,7 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
     HttpClientModule,
     FormsModule,
     routing,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: lookupGameList, useValue: lookForGames}

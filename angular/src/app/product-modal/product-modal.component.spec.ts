@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductModalComponent } from './product-modal.component';
+import {AppModule} from '../app.module';
 
 describe('ProductModalComponent', () => {
   let component: ProductModalComponent;
@@ -8,7 +9,7 @@ describe('ProductModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductModalComponent ]
+      imports: [AppModule]
     })
     .compileComponents();
   }));
@@ -20,6 +21,6 @@ describe('ProductModalComponent', () => {
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toThrowError();
   });
 });
