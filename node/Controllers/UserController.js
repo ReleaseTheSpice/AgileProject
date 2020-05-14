@@ -93,6 +93,62 @@ exports.Logout = (req, res) => {
                                reqInfo:reqInfo});
 };
 
+// Toggles a message id in the list of ones the user has voted on
+exports.Vote = async function(req, res) {
+    let username = req.body.username
+    let msgId = req.body.msgId;
+    let userVotes = await _userRepo.getVotesByUsername(username);
+    let upvotes = userVotes["up"];
+    let downvotes = userVotes["down"];
+    var vote = "none";
+
+    if (upvotes.indexOf(msgId)>=0) {
+        // User has already upvoted
+        vote = "up";
+        upvotes.remove(msgId);
+    }
+    if (downvotes.indexOf(msgId)>=0) {
+        // User has already downvoted
+        vote = "down";
+        downvotes.remove(msgId);
+    }
+    if (vote=="none") {
+        // User has not yet voted
+        if (req.body.upvote) {
+            upvotes.push(msgId);
+        } else {
+            downvotes.push(msgId);
+        }
+    }
+
+    // Call update() function in repository with the object.
+    let responseObject = await _userRepo.vote(username, upvotes, downvotes);
+
+    // Update was successful.
+    if(responseObject.errorMessage === "") {
+        res.json({ message:responseObject.obj, type: vote,
+                                            errorMessage:"" });
+    }
+
+    // Update not successful. Show form again.
+    else {
+        res.json( {
+            message:      responseObject.obj,
+            errorMessage: responseObject.errorMessage });
+    }
+};
+
+Array.prototype.remove = function() {
+    var what, a = arguments, L = a.length, ax;
+    while (L && this.length) {
+        what = a[--L];
+        while ((ax = this.indexOf(what)) !== -1) {
+            this.splice(ax, 1);
+        }
+    }
+    return this;
+};
+
 
 // This displays a view called 'securearea' but only 
 // if user is authenticated.

@@ -24,6 +24,9 @@ export class Forum {
     _replyContent:String = "";
     admin                 = false;
     username              = '';
+    upVotes               = [];
+    downVotes             = [];
+    previousVoteStatus    = '';
     token                 = '';
     message               = 'Not logged in.';
     secureData:string     = '';
@@ -35,10 +38,6 @@ export class Forum {
         this._apiService = new ApiService(http, this);
         this.showContentIfLoggedIn();
         this.getAllMessages();
-    }
-
-    changecolor(id) {
-        document.getElementById(id).style.backgroundColor="red"
     }
 
     showContentIfLoggedIn() {
@@ -64,6 +63,8 @@ export class Forum {
             _this.secureData = result.secureData;
             _this.reqInfo = result.reqInfo;
             _this.username = result.reqInfo.username;
+            this.upVotes = result.reqInfo.votedUp;
+            this.downVotes = result.reqInfo.votedDown;
             if (result.reqInfo.roles.indexOf('Admin') >= 0) {
                 _this.admin = true;
             }
@@ -121,11 +122,15 @@ export class Forum {
                 })
     }
 
-    createMessage(replyingTo: number=-1) {
+    checkLogin() {
         // If user is not logged in, send them to the login page.
         if (this.username == '') {
             this.router.navigate(['/login'])
         }
+    }
+
+    createMessage(replyingTo: number=-1) {
+        this.checkLogin();
 
         //Check if the message is a reply.
         if (replyingTo<0) {
@@ -174,25 +179,51 @@ export class Forum {
         this._replyContent = ""
     }
 
-    vote(upvote, message) {
+    toggleUserVote(message, upvote) {
+        // This function checks/sets whether or not the user has previously voted
+        let url = 'http://localhost:1337/User/Vote';
+        let msgId = message._id;
+        this._http.put(url, {
+            username: this.username,
+            msgId :	msgId,
+            upvote: upvote
+        }).subscribe(result => {
+            // @ts-ignore
+            this.previousVoteStatus = result.type;
+            if (upvote) { var vote = "up" } else { var vote = "down" }
+            if (this.previousVoteStatus == vote) {
+                upvote = !upvote
+            }
+            this.updateMessageVotes(upvote, message)
+        },
+        error =>{
+            // Let user know about the error.
+            this._errorMessage = error;
+        })
+    }
+    updateMessageVotes(upvote, message) {
+        // This function updates the "votes" variables for the message itself
         let url = BASE_URL + 'Vote';
         this._http.put(url, {
             _id: message._id,
             upVote: upvote
         })
-            // Get data and wait for result.
-            .subscribe(result => {
-                    console.log("This is the message that was voted:");
-                    console.log(result);
-                    // @ts-ignore
-                    this.currentThread.votes = result.message.votes;
-                    this.getAllMessages();
-                },
-                error =>{
-                    // Let user know about the error.
-                    this._errorMessage = error;
-                })
-
+        // Get data and wait for result.
+        .subscribe(result => {
+            console.log("This is the message that was voted:");
+            console.log(result);
+            // @ts-ignore
+            this.currentThread.votes = result.message.votes;
+            this.getAllMessages();
+        },
+        error =>{
+            // Let user know about the error.
+            this._errorMessage = error;
+        })
+    }
+    vote(upvote, message) {
+        this.checkLogin();
+        this.toggleUserVote(message, upvote)
     }
 
     resetCurrentThread() {

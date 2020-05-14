@@ -2,26 +2,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService} from '../ApiService';
 import { GameItemComponent } from './game-item.component';
-<<<<<<< HEAD
 import { AppModule } from '../app.module';
-=======
 import { Router } from '@angular/router';
->>>>>>> 4040ec46eab2008ebaa8df2c68c11de2780a8197
 
 // define suite- grp of related tests
 // it()  defice spec(test)
-fdescribe('GameItemComponent', () => {
+describe('GameItemComponent', () => {
   // let component: GameItemComponent;
   // let fixture: ComponentFixture<GameItemComponent>;
 
-<<<<<<< HEAD
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppModule]
     })
         .compileComponents();
   }));
-=======
   // beforeEach(async(() => {
   //   TestBed.configureTestingModule({
   //     declarations: [ GameItemComponent ]
@@ -35,7 +30,6 @@ fdescribe('GameItemComponent', () => {
   //   component = fixture.componentInstance;
   //   fixture.detectChanges();
   // });
->>>>>>> 4040ec46eab2008ebaa8df2c68c11de2780a8197
 
   // it('should emit on click', () => {
   //   const fixture = TestBed.createComponent(GameItemComponent);
@@ -53,10 +47,9 @@ fdescribe('GameItemComponent', () => {
   //   expect(component.detail.emit).toHaveBeenCalledWith('hello');
   // });
 
-<<<<<<< HEAD
-  it('should create', () => {
-    expect(component).toThrowError();
-=======
+  // it('should create', () => {
+  //   expect(component).toThrowError();
+  // }
   it('should contain _id', () => {
     let obj = {
       buyers: [],
@@ -73,6 +66,5 @@ fdescribe('GameItemComponent', () => {
     };
     // let test = component.onDetail(obj);
     expect(Object.keys(obj)).toContain('_id');
->>>>>>> 4040ec46eab2008ebaa8df2c68c11de2780a8197
   });
 });
