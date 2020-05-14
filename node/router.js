@@ -19,6 +19,7 @@ module.exports = function(app){
     app.get('/User/Logout', UserController.Logout);
     app.get('/User/SecureArea', UserController.SecureArea);
     app.get('/User/ManagerArea', UserController.ManagerArea);
+    app.put('/User/Vote', UserController.Vote);
 
     app.get('/Event/GetEvents', EventController.GetEvents);
     app.post('/Event/CreateEvent', EventController.CreateEvent);

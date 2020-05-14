@@ -17,7 +17,6 @@ exports.GetMessages = async function(request, response) {
 
 // Gets only select objects.
 exports.GetMessagesById = async function(request, response) {
-    //FIXME: This function needs unit testing.
     // request.query used to get url parameter.
     let messagesToGet  = request.query.ids.split(","); 
     let Messages = [];
@@ -143,13 +142,17 @@ exports.Delete = async function(request, response) {
     response.json( {messages:messages});
 };
 
+/* istanbul ignore next */
 Array.prototype.remove = function() {
+    /* istanbul ignore next */
     var what, a = arguments, L = a.length, ax;
+    /* istanbul ignore next */
     while (L && this.length) {
         what = a[--L];
         while ((ax = this.indexOf(what)) !== -1) {
             this.splice(ax, 1);
         }
     }
+    /* istanbul ignore next */
     return this;
 };
