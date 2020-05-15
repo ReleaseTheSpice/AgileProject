@@ -210,40 +210,40 @@ describe("Tests success API HTTP requests for Users", () => {
     //             });
     //     }).timeout(10000);
 
-    // POST user
-    it("Tests if new users can be created", (done) => {
-            chai.request(app)
-                .post(`/User/RegisterUser`)
-                .send({
-                    "username":   "test",
-                    "email":      "test@test.ca",
-                    "firstName":  "test",
-                    "lastName":   "test",
-                    "password":   "test123",
-                    "passConf":   "test123",
-                    "admin":      false
-            })
-                .end((err, res) => {
-                    console.log("THIS IS THE USER POST TEST",res)
-                    let usr = res.body.user
-                    console.log("////////////////////",usr)
+//     // POST user
+//     it("Tests if new users can be created", (done) => {
+//             chai.request(app)
+//                 .post(`/User/RegisterUser`)
+//                 .send({
+//                     "username":   "test",
+//                     "email":      "test@test.ca",
+//                     "firstName":  "test",
+//                     "lastName":   "test",
+//                     "password":   "test123",
+//                     "passConf":   "test123",
+//                     "admin":      false
+//             })
+//                 .end((err, res) => {
+//                     console.log("THIS IS THE USER POST TEST",res)
+//                     let usr = res.body.user
+//                     console.log("////////////////////",usr)
 
-                    let username = usr.username
-                    let email = usr.email
-                    let firstName = usr.firstName
-                    let lastName = usr.lastName
-                    let password = usr.password
-                    let admin = usr.admin
-                    username.should.equal('test')
-                    email.should.equal('test@test.ca')
-                    firstName.should.equal('test')
-                    lastName.should.equal('test')
-                    password.should.equal('test123')
-                    admin.should.equal(false)
+//                     let username = usr.username
+//                     let email = usr.email
+//                     let firstName = usr.firstName
+//                     let lastName = usr.lastName
+//                     let password = usr.password
+//                     let admin = usr.admin
+//                     username.should.equal('test')
+//                     email.should.equal('test@test.ca')
+//                     firstName.should.equal('test')
+//                     lastName.should.equal('test')
+//                     password.should.equal('test123')
+//                     admin.should.equal(false)
                 
-                    done();
-                });
-        });
+//                     done();
+//                 });
+//         });
 
     // //perform a GET test. (data can be gotten correctly)
     // it("Tests if it can GET SPECIFIC messages from the DB", (done) => {
