@@ -31,7 +31,7 @@ class UserRepo {
             let votes = {
                 "up": user.votedUp,
                 "down": user.votedDown
-            }
+            };
             return votes
         }
         else {

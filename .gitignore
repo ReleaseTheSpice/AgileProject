@@ -1,7 +1,4 @@
 /.idea/
-
-/angular/node_modules/
-/angular/.idea/workspace.xml
-
-/node/node_modules/
-/node/.nyc_output/
+node_modules/
+.nyc_output/
+.env
