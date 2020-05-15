@@ -1,3 +1,5 @@
+dist: trusty
+
 language: node_js
 node_js:
  - "stable"
@@ -5,3 +7,16 @@ script: cd node; npm install nyc; npm test; cd ../angular; npm install ng-common
 services:
  - mongodb
  
+addons:
+ apt:
+  sources:
+   - google-chrome
+  packages:
+   - google-chrome-stable
+
+cache:
+ directories:
+  - ./node_modules
+
+install:
+ - npm install
