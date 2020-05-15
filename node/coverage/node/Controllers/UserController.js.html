@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.32% </span>
+                <span class="strong">30.68% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>17/88</span>
+                <span class='fraction'>27/88</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">11.54% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/26</span>
+                <span class='fraction'>3/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">14.29% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>2/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">19.54% </span>
+                <span class="strong">31.03% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/87</span>
+                <span class='fraction'>27/87</span>
             </div>
         
             
@@ -287,37 +287,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -500,23 +500,23 @@ exports.Register = <span class="fstat-no" title="function not covered" >as</span
 };
 &nbsp;
 // Handles 'POST' with registration form submission.
-exports.RegisterUser  = <span class="fstat-no" title="function not covered" >as</span>ync function(req, res){
+exports.RegisterUser  = async function(req, res){
 &nbsp;
-    var password = <span class="cstat-no" title="statement not covered" >req.body.password;</span>
-    var passConf = <span class="cstat-no" title="statement not covered" >req.body.passConf;</span>
+    var password = req.body.password;
+    var passConf = req.body.passConf;
 &nbsp;
     // Check if new user is supposed to be admin
-<span class="cstat-no" title="statement not covered" >    if (req.body.admin == true) {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (req.body.admin == true) {
         var roles = <span class="cstat-no" title="statement not covered" >['Admin'];</span>
     } else {
-        var roles = <span class="cstat-no" title="statement not covered" >[];</span>
+        var roles = [];
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    if (password == passConf) {</span>
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (password == passConf) {
 &nbsp;
         // Creates user object with mongoose model.
         // Note that the password is not present.
-        var newUser = <span class="cstat-no" title="statement not covered" >new User({</span>
+        var newUser = new User({
             firstName:    req.body.firstName,
             lastName:     req.body.lastName,
             email:        req.body.email,
@@ -527,12 +527,12 @@ exports.RegisterUser  = <span class="fstat-no" title="function not covered" >as<
         // Uses passport to register the user.
         // Pass in user object without password
         // and password as next parameter.
-<span class="cstat-no" title="statement not covered" >        User.register(new User(newUser), req.body.password, </span>
-<span class="fstat-no" title="function not covered" >                fu</span>nction(err, account) {
+        User.register(new User(newUser), req.body.password, 
+                function(err, account) {
                     // Show registration form with errors if fail.
-<span class="cstat-no" title="statement not covered" >                    if (err) {</span>
-                        let reqInfo = <span class="cstat-no" title="statement not covered" >RequestService.reqHelper(req);</span>
-<span class="cstat-no" title="statement not covered" >                        return res.json({</span>
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (err) {
+                        let reqInfo = RequestService.reqHelper(req);
+                        return res.json({
                             user: newUser, 
                             errorMessage: err, 
                             reqInfo:reqInfo
@@ -709,7 +709,7 @@ exports.PostAreaJwt = <span class="fstat-no" title="function not covered" >as</s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed May 13 2020 23:59:42 GMT-0700 (Pacific Daylight Time)
+                at Thu May 14 2020 16:59:44 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

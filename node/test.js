@@ -10,7 +10,7 @@ const Message           = require('./Models/Message');
 chai.use(chaiHttp);
 chai.should();
 
-// SUCCESS TESTS
+// SUCCESS TESTS for MESSAGES
 describe("Tests success API HTTP requests for Messages", () => {         
     const ID = 99;
     const replyID = 100;
@@ -23,7 +23,7 @@ describe("Tests success API HTTP requests for Messages", () => {
                     res.should.have.status(200); //<= test http status, 200 is all-good, 400 is bad.
                     res.body.should.be.a('object');
                 // Show entire contents of response.
-                console.log(res)
+                // console.log(res)
                 
                     done();
                 });
@@ -46,12 +46,13 @@ describe("Tests success API HTTP requests for Messages", () => {
             })
                 .end((err, res) => {
                     //Then, run your specific tests just like before.
-
-                    console.log("Showing output.")
                     let msg = res.body.message
-                    console.log("Posted Message:", msg)
-                    console.log(res.body.errorMessage);
-                    console.log("Here: \n", msg.content, "\n", msg["content"])
+
+                    // console.log("Showing output.")
+                    
+                    // console.log("Posted Message:", msg)
+                    // console.log(res.body.errorMessage);
+                    // console.log("Here: \n", msg.content, "\n", msg["content"])
                     //If there are no errors, the API should return the POSTED item.
                     let content = msg.content
                     let author = msg.author
@@ -150,11 +151,11 @@ describe("Tests success API HTTP requests for Messages", () => {
             .end((err, res) => {
                 res.should.have.status(200); //<= test http status, 200 is all-good, 400 is bad.
                 res.body.should.be.a('object');
-                console.log(res.body)
+                // console.log(res.body)
                 let messages = res.body.messages;
                 messages.should.be.an('array');
                 let msg = messages[messages.length-1]
-                console.log("new final msg:", msg)
+                // console.log("new final msg:", msg)
                 msg.replies.length.should.equal(0);
                 
                 // finalID.should.not.equal(99);
@@ -173,11 +174,11 @@ describe("Tests success API HTTP requests for Messages", () => {
             .end((err, res) => {
                 res.should.have.status(200); //<= test http status, 200 is all-good, 400 is bad.
                 res.body.should.be.a('object');
-                console.log(res.body)
+                // console.log(res.body)
                 let messages = res.body.messages;
                 messages.should.be.an('array');
                 let msg = messages[messages.length-1]
-                console.log("new final msg:", msg)
+                // console.log("new final msg:", msg)
                 let finalID = msg._id;
                 //FIXME// this test works... but for some reason the output it gets returned still has the item that's supposed to be deleted.
                         //this is expecially bizarre since the item is not available in the database, meaning it must be getting deleted, but
@@ -192,8 +193,8 @@ describe("Tests success API HTTP requests for Messages", () => {
 }).timeout(10000);
 
 
-// FAILURE TESTS (not yet written)
-describe("Tests failure API HTTP requests for Messages", () => {         
+// SUCCESS tests for USERS
+describe("Tests success API HTTP requests for Users", () => {         
 
     // //perform a GET test. (data can be gotten correctly)
     // it("Tests if it can GET all messages from the DB", (done) => {
@@ -209,44 +210,40 @@ describe("Tests failure API HTTP requests for Messages", () => {
     //             });
     //     }).timeout(10000);
 
-    // // Perform a POST test. (data can be posted correctly)
-    // it("Tests if messages can be POSTED to the DB", (done) => {
-    //         chai.request(app)
-    //             .post(`/Message/CreateMessage`) //<=POST to some PATH, in our case, a good place to start is /Message/CreateMessage
-    //                                     //This PATH can be any of the ones in router.js.
+    // POST user
+    it("Tests if new users can be created", (done) => {
+            chai.request(app)
+                .post(`/User/RegisterUser`)
+                .send({
+                    "username":   "test",
+                    "email":      "test@test.ca",
+                    "firstName":  "test",
+                    "lastName":   "test",
+                    "password":   "test123",
+                    "passConf":   "test123",
+                    "admin":      false
+            })
+                .end((err, res) => {
+                    console.log("THIS IS THE USER POST TEST",res)
+                    let usr = res.body.user
+                    console.log("////////////////////",usr)
 
-    //         //Since this is a POST test, in my case, I want to .send some data to be posted.
-    //             .send({
-    //                 "_id":ID,
-    //             "content": "test",
-    //             "author":"test",
-    //             "date": "Jan 6, 2040",
-    //             "replies": [],
-    //             "reply": false
-    //         })
-    //             .end((err, res) => {
-    //                 //Then, run your specific tests just like before.
-
-    //                 console.log("Showing output.")
-    //                 let msg = res.body.message
-    //                 console.log("Posted Message:", msg)
-    //                 console.log(res.body.errorMessage);
-    //                 console.log("Here: \n", msg.content, "\n", msg["content"])
-    //                 //If there are no errors, the API should return the POSTED item.
-    //                 let content = msg.content
-    //                 let author = msg.author
-    //                 let date = msg.date
-    //                 let replies = msg.replies
-    //                 let reply = msg.reply
-    //                 content.should.equal('test')
-    //                 author.should.equal('test')
-    //                 date.should.equal('Jan 6, 2040')
-    //                 replies.length.should.equal(0)
-    //                 reply.should.equal(false)
+                    let username = usr.username
+                    let email = usr.email
+                    let firstName = usr.firstName
+                    let lastName = usr.lastName
+                    let password = usr.password
+                    let admin = usr.admin
+                    username.should.equal('test')
+                    email.should.equal('test@test.ca')
+                    firstName.should.equal('test')
+                    lastName.should.equal('test')
+                    password.should.equal('test123')
+                    admin.should.equal(false)
                 
-    //                 done();
-    //             });
-    //     });
+                    done();
+                });
+        });
 
     // //perform a GET test. (data can be gotten correctly)
     // it("Tests if it can GET SPECIFIC messages from the DB", (done) => {

@@ -10,7 +10,8 @@
     "lines": 10,
     "exclude": [
       "tests/*",
-      "coverage/*"
+      "coverage/*",
+      "*/*Event*"
     ]
   },
   "scripts": {
