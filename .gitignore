@@ -5,3 +5,5 @@
 
 /node/node_modules/
 /node/.nyc_output/
+
+/node/.env
