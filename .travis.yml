@@ -3,7 +3,7 @@ dist: trusty
 language: node_js
 node_js:
  - "stable"
-script: cd node; npm install nyc; npm test; cd ../angular; npm install ng-common ng test;
+script: cd node; npm install nyc; npm test; cd ../angular; npm install @angular/cli; ng test;
 services:
  - mongodb
  
@@ -17,6 +17,3 @@ addons:
 cache:
  directories:
   - ./node_modules
-
-install:
- - npm install
