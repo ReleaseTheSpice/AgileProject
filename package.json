@@ -15,7 +15,8 @@
     ]
   },
   "scripts": {
-    "test": "nyc --reporter=html mocha --exit --timeout=5000"
+    "test": "nyc --reporter=html mocha --exit --timeout=5000",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
