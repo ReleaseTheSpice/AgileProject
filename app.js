@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
-
+var mongodb = require("mongodb");
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/GamerDB", function (err, client) {
   if (err) {
