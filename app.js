@@ -6,9 +6,9 @@ var path          = require('path');
 var engine        = require('ejs-locals');
 var bodyParser    = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
-const DB_URI      = 'mongodb://localhost:27017/GamerDB';
-let options       = { useNewUrlParser: true  };
-mongoose.connect(DB_URI, options);
+//const DB_URI      = 'mongodb://localhost:27017/GamerDB';
+//let options       = { useNewUrlParser: true  };
+//mongoose.connect(DB_URI, options);
 
 var app           = express();
 var cors = require('cors');
@@ -19,6 +19,27 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
+});
+
+// Create a database variable outside of the database connection callback to reuse the connection pool in your app.
+var db;
+
+// Connect to the database before starting the application server.
+mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/GamerDB", function (err, client) {
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
+
+  // Save database object from the callback for reuse.
+  db = client.db();
+  console.log("Database connection ready");
+
+  // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+  });
 });
 
 // Parse URL-encoded bodies (as sent by HTML forms)
@@ -68,9 +89,9 @@ app.set('views', path.join(__dirname, 'views'));
 //app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.static(path.join(__dirname, 'public')));
  
-http.createServer(app).listen(process.env.PORT || 8080, function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+//http.createServer(app).listen(process.env.PORT || 8080, function(){
+//  console.log('Express server listening on port ' + app.get('port'));
+//});
 
 // http.createServer(app).listen(app.get('port'), function(){
 //   console.log('Express server listening on port ' + app.get('port'));
