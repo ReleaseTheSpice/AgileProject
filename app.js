@@ -9,6 +9,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 const uri = "mongodb+srv://dbadmin:dbadmin444@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority";
 
+let options       = { useNewUrlParser: true  };
+mongoose.connect(uri, options);
+
 var app           = express();
 var cors = require('cors');
 app.use(cors());
