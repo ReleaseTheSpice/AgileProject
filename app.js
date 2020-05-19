@@ -6,11 +6,9 @@ var path          = require('path');
 var engine        = require('ejs-locals');
 var bodyParser    = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
-
-const uri = "mongodb+srv://dbadmin:dbadmin444@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority";
-
+const DB_URI      = 'mongodb://localhost:27017/GamerDB';
 let options       = { useNewUrlParser: true  };
-mongoose.connect(uri, options);
+mongoose.connect(DB_URI, options);
 
 var app           = express();
 var cors = require('cors');
@@ -38,7 +36,7 @@ app.use(require('express-session')({
     host: 'localhost',      // optional
     port: 27017,            // optional
     db: 'GamerDB',          // optional
-    collection: 'sessions', // optional
+    collection: 'sessions'  // optional
   })
 
 }));
@@ -51,8 +49,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
  // Enable routing and use port 1337.
-require('./router')(app);
-app.set('port', 1337);
+// require('./router')(app);
+// app.set('port', 1337);
 
  // Set up ejs templating.
 app.engine('ejs', engine);
@@ -67,8 +65,12 @@ app.set('views', path.join(__dirname, 'views'));
 // could link directly to it in your view <link href=”style.css” rel=”stylesheet”>
 app.use(express.static(path.join(__dirname, 'static')));
  
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(app).listen(process.env.PORT || 8080, function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+// http.createServer(app).listen(app.get('port'), function(){
+//   console.log('Express server listening on port ' + app.get('port'));
+// });
 
 module.exports = app;
