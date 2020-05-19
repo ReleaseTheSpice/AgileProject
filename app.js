@@ -49,8 +49,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
  // Enable routing and use port 1337.
-// require('./router')(app);
-// app.set('port', 1337);
+require('./router')(app);
+app.set('port', 8080);
 
  // Set up ejs templating.
 app.engine('ejs', engine);
