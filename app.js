@@ -7,7 +7,7 @@ var engine        = require('ejs-locals');
 var bodyParser    = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
 
-const uri = "mongodb+srv://dbadmin:<password>@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://dbadmin:dbadmin444@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority";
 
 var app           = express();
 var cors = require('cors');
