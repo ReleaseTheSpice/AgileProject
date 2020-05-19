@@ -79,7 +79,7 @@ app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 // Set view folder.
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'Views'));
 
 // That line is to specify a directory where you could 
 // link to static files (images, CSS, etc.). 
