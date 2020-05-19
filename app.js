@@ -6,15 +6,8 @@ var path          = require('path');
 var engine        = require('ejs-locals');
 var bodyParser    = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
-mongodb+srv://dbadmin:<password>@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://dbadmin:dbadmin444@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+
+const uri = "mongodb+srv://dbadmin:<password>@cluster0-dty3q.mongodb.net/test?retryWrites=true&w=majority";
 
 var app           = express();
 var cors = require('cors');
