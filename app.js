@@ -53,7 +53,8 @@ require('./router')(app);
 app.set('port', 8080);
 
  // Set up ejs templating.
-app.engine('ejs', engine);
+//app.engine('ejs', engine);
+app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 // Set view folder.
@@ -63,7 +64,9 @@ app.set('views', path.join(__dirname, 'views'));
 // link to static files (images, CSS, etc.). 
 // So if you put a style.css file in that directory and you 
 // could link directly to it in your view <link href=”style.css” rel=”stylesheet”>
-app.use(express.static(path.join(__dirname, 'static')));
+
+//app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, 'public')));
  
 http.createServer(app).listen(process.env.PORT || 8080, function(){
   console.log('Express server listening on port ' + app.get('port'));
