@@ -27,6 +27,13 @@ describe('ForumComponent', () => {
     it('should get component values', () => {
         expect(component.admin).toEqual(false);
         expect(component._content).toEqual('');
+        expect(component._errorMessage).toEqual('');
+        expect(component._replyContent).toEqual('');
+        expect(component.upVotes).toEqual([]);
+        expect(component.downVotes).toEqual([]);
+        component.showContentIfLoggedIn();
+        expect(component.message).toEqual('Not logged in.');
+        expect(component.token).toEqual('');
     });
 
     it('should clear message', () => {
@@ -34,6 +41,8 @@ describe('ForumComponent', () => {
         expect(component._content).toEqual('test');
         component.clearMessage();
         expect(component._content).toEqual("");
+        component.username = 'hi';
+        component.checkLogin();
     });
 
     it('should clear reply', () => {
@@ -46,6 +55,16 @@ describe('ForumComponent', () => {
         component.username = 'test';
         component.createMessage();
         expect(component._errorMessage).toEqual('');
+    });
+
+    it('should test delete', () => {
+        component.delete('');
+        expect(1).toEqual(1);
+        component.resetCurrentThread();
+        expect(component._errorMessage).toEqual('no current thread selected.');
+        component.currentThread = '1';
+        component.resetCurrentThread();
+        component.updateMessageVotes('fff', 'fff');
     });
 
 });
