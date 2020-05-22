@@ -10,7 +10,11 @@
     "lines": 10,
     "exclude": [
       "tests/*",
-      "coverage/*"
+      "coverage/*",
+      "Controllers/Home*",
+      "Controllers/User*",
+      "Data/*",
+      "Services/*"
     ]
   },
   "scripts": {

@@ -5,47 +5,11 @@
 </head>
 
 <body>
-  <div class="dropdown text-center gameList mb-5">
-    <button class="btn btn-primary w-100 dropdown-toggle"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search for a game</button>
-
-    <ul aria-labelledby="dropdownMenuButton " class="w-100 m-0 pl-0 dropdown-menu pt-0 pl-4">
-      <li  class="dropdown-header  mb-0 p-0">Online games</li>
-      <li  class="list-inline breadcrumb-item" *ngFor="let gameTitle of lookupLists.gameTitles"
-          [textContent]="gameTitle">{{ gameTitle }}</li>
-    </ul>
-  </div>
 
   <app-game-item-list [gameItems]="gameItems" ></app-game-item-list>
   <button class= 'bottomRight btn btn-primary' type="button" label="Click" (click)="toggleChild()">Sell Item</button>
-  <div>
-    <app-game-item-form  [showForm]="showForm" ></app-game-item-form>
-  </div>
-
-
 
   <br>
-<!-- The default form works. not the popup css create product form :'(
-<div>
-  <b>Item: </b>
-  <td><input mdbInput type="text" name="item" [(ngModel)]="productName" required></td>
-  <br>
-  <b>Category: </b>
-  <td><input mdbInput type="text" name="category" [(ngModel)]="category" required></td>
-  <br>
-  <b>Price: </b>
-  <td><input mdbInput type="text" name="price" [(ngModel)]="price" required></td>
-  <br>
-  <b>Quantity: </b>
-  <td><input mdbInput type="text" name="quantity" [(ngModel)]="quantity" required></td>
-  <br>  
-  <b>Description: </b>
-  <td><input mdbInput type="text" name="description" [(ngModel)]="description" required></td>
-  {{errorMessage}}
-  <br>
-  <input class="submit" type="button" value="Create Product" (click)="createProduct()">
-  <br>
-</div> -->
-
 
 <div *ngIf = "showForm" class="container row mr-0 bottomRight" >
     <form class="form-group row">
@@ -70,7 +34,7 @@
         <b class="form-group row mb-0 col-12">Quantity: </b>
         <td><input class="form-control col-9" mdbInput type="text" name="quantity" [(ngModel)]="quantity" required></td>
         </div>
-        
+
         <div class="col-12">
         <b class="form-group row mb-0 col-12">Description: </b>
         <td><textarea class="form-control" rows="4" cols="50" mdbInput type="text" name="description" [(ngModel)]="description" required> </textarea></td>

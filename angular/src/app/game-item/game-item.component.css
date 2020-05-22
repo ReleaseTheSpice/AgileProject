@@ -45,3 +45,9 @@ section.is-sold.is-sold-hovering{
     border-color: red;
     display: block;
 }
+
+@media only screen and (max-width: 576px) {
+    button {
+        width: 120px;
+    }
+}

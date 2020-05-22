@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.74% </span>
+                <span class="strong">36.96% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/46</span>
+                <span class='fraction'>17/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">16.67% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">14.29% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>1/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">21.74% </span>
+                <span class="strong">36.96% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/46</span>
+                <span class='fraction'>17/46</span>
             </div>
         
             
@@ -219,34 +219,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -342,11 +342,11 @@ exports.Create = <span class="fstat-no" title="function not covered" >as</span>y
 };
 &nbsp;
 // Receives POST data and tries to save it.
-exports.CreateProduct = <span class="fstat-no" title="function not covered" >as</span>ync function(request, response) {
+exports.CreateProduct = async function(request, response) {
 &nbsp;
     // Package object up nicely using content from 'body'
     // of the POST request.
-    let tempProductObj  = <span class="cstat-no" title="statement not covered" >new Product( {</span>
+    let tempProductObj  = new Product( {
         "_id":          request.body._id,
         "productName":  request.body.productName,
         "category":     request.body.category,
@@ -357,14 +357,14 @@ exports.CreateProduct = <span class="fstat-no" title="function not covered" >as<
         "seller":       request.body.seller,
     });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    console.log(request.body.productName)</span>
-<span class="cstat-no" title="statement not covered" >    console.log(request.body.description)</span>
+    console.log(request.body.productName)
+    console.log(request.body.description)
 &nbsp;
     // Call Repo to save 'Product' object.
-    let responseObject = <span class="cstat-no" title="statement not covered" >await _productRepo.create(tempProductObj);</span>
+    let responseObject = await _productRepo.create(tempProductObj);
 &nbsp;
     // No errors so save is successful.
-<span class="cstat-no" title="statement not covered" >    if(responseObject.errorMessage == "") {</span>
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(responseObject.errorMessage == "") {
 <span class="cstat-no" title="statement not covered" >        console.log('Saved without errors.');</span>
 <span class="cstat-no" title="statement not covered" >        console.log(JSON.stringify(responseObject.obj));</span>
 <span class="cstat-no" title="statement not covered" >        response.json({ product:responseObject.obj,</span>
@@ -372,8 +372,8 @@ exports.CreateProduct = <span class="fstat-no" title="function not covered" >as<
     }
     // There are errors. Show form the again with an error message.
     else {
-<span class="cstat-no" title="statement not covered" >        console.log("An error occured. Item not created.");</span>
-<span class="cstat-no" title="statement not covered" >        response.json( {</span>
+        console.log("An error occured. Item not created.");
+        response.json( {
                         product:responseObject.obj,
                         errorMessage:responseObject.errorMessage});
     }
@@ -445,7 +445,7 @@ exports.Delete = <span class="fstat-no" title="function not covered" >as</span>y
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu May 14 2020 15:01:55 GMT-0700 (Pacific Daylight Time)
+                at Fri May 22 2020 04:45:25 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GameItemService} from '../game-item.service';
 
 @Component({
   selector: 'app-game-item-list',
@@ -26,7 +25,6 @@ export class GameItemListComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    // this.gameItems = this.gameItemService.get();
   }
 
 }

@@ -51,7 +51,7 @@ export class Purchases {
             this._http.get<any>(url)
                 // Get data and wait for result.
                 .subscribe(result => {
-                        this.myproducts = result.products.filter(sale => sale.buyers.includes(this.username)) // FIXMEEEEE this.username
+                        this.myproducts = result.products.filter(sale => sale.buyers.includes(this.username))
                     },
     
                     error =>{
@@ -108,7 +108,7 @@ export class Purchases {
         this._http.get<any>(url)
             // Get data and wait for result.
             .subscribe(result => {
-                    this.myproducts = result.products.filter(sale => sale.buyers.includes(this.username)) // FIXMEEEEE this.username
+                    this.myproducts = result.products.filter(sale => sale.buyers.includes(this.username))
                 },
 
                 error =>{

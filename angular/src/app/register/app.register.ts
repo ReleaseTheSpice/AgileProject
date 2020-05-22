@@ -2,6 +2,7 @@
 import { Component }       from '@angular/core';
 // @ts-ignore
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './register.html'
@@ -17,7 +18,7 @@ export class Register {
   admin: boolean = false;
   errorMessage: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   validateUser() {
@@ -65,6 +66,7 @@ export class Register {
           this.errorMessage = data['errorMessage']['message'];
           console.log("POST call successful. Inspect response.",
             JSON.stringify(data));
+          this.router.navigate(['/login'])
         },
         // An error occurred. Data is not received.
         error => {

@@ -2,7 +2,6 @@ import { Component, Inject }       from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiService} from "../ApiService";
 import { Router } from '@angular/router';
-import {lookForGames, lookupGameList} from '../providers';
 
 const BASE_URL = "http://localhost:1337/Product/";
 
@@ -33,7 +32,6 @@ export class Main {
     message:    String;
 
     constructor(private http: HttpClient,
-                @Inject(lookupGameList) public lookupLists,
                 private router: Router) {
         // Pass in http module and pointer to AppComponent.
         this._apiService = new ApiService(http, this);
