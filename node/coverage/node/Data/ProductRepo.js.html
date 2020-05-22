@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.26% </span>
+                <span class="strong">23.68% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/38</span>
+                <span class='fraction'>9/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.26% </span>
+                <span class="strong">23.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/38</span>
+                <span class='fraction'>9/38</span>
             </div>
         
             
@@ -198,25 +198,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -231,6 +227,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -289,8 +289,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -318,18 +318,18 @@ class ProductRepo {
 <span class="cstat-no" title="statement not covered" >        return   product;</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    as</span>ync create(productObj) {
-<span class="cstat-no" title="statement not covered" >        try {</span>
+    async create(productObj) {
+        try {
             // Checks if model conforms to validation rules that we set in Mongoose.
-            var error = <span class="cstat-no" title="statement not covered" >await productObj.validateSync();</span>
+            var error = await productObj.validateSync();
             
             // The model is invalid. Return the object and error message. 
-<span class="cstat-no" title="statement not covered" >            if(error) {</span>
-                let response = <span class="cstat-no" title="statement not covered" >{</span>
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(error) {
+                let response = {
                     obj:          productObj,
                     errorMessage: error.message };
     
-<span class="cstat-no" title="statement not covered" >                return response; </span>// Exit if the model is invalid.
+                return response; // Exit if the model is invalid.
             } 
     
             // Model is not invalid so save it.
@@ -409,9 +409,9 @@ class ProductRepo {
         }    
     }  
     
-<span class="fstat-no" title="function not covered" >    as</span>ync delete(id) {
-<span class="cstat-no" title="statement not covered" >        console.log("Id to be deleted is: " + id);</span>
-        let deletedItem =  <span class="cstat-no" title="statement not covered" >await Product.find({_id:id}).remove().exec();</span>
+    async delete(id) {
+        console.log("Id to be deleted is: " + id);
+        let deletedItem =  await Product.find({_id:id}).remove().exec();
 <span class="cstat-no" title="statement not covered" >        console.log(deletedItem);</span>
 <span class="cstat-no" title="statement not covered" >        return deletedItem;</span>
     }
@@ -427,7 +427,7 @@ module.exports = ProductRepo;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri May 22 2020 03:11:13 GMT-0700 (Pacific Daylight Time)
+                at Fri May 22 2020 04:26:27 GMT-0700 (Pacific Daylight Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

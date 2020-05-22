@@ -10,7 +10,7 @@ const Message           = require('./Models/Message');
 chai.use(chaiHttp);
 chai.should();
 
-// SUCCESS TESTS
+// SUCCESS TESTS FOR MESSAGE
 describe("Tests success API HTTP requests for Messages", () => {         
     const ID = 99;
     const replyID = 100;
@@ -183,5 +183,72 @@ describe("Tests success API HTTP requests for Messages", () => {
                 done();
                 });
     }).timeout(10000);
+
+}).timeout(10000);
+
+// SUCCESS TESTS FOR PRODUCT
+describe("Tests success API HTTP requests for Products", () => {         
+    const ID = 99;
+
+    // Create Poduct
+    it("Tests if products can be POSTED to the DB", (done) => {
+        chai.request(app)
+            .post(`/Product/CreateProduct`) //<=POST to some PATH, in our case, a good place to start is /Message/CreateMessage
+                                    //This PATH can be any of the ones in router.js.
+
+        //Since this is a POST test, in my case, I want to .send some data to be posted.
+            .send({
+                "_id":  ID,
+        "productName":  "test",
+        "category":     "test",
+        "description":  "test",
+        "price":        10,
+        "date":         "Jan 6, 2040",
+        "quantity":     2,
+        "seller":       "test",
+        })
+            .end((err, res) => {
+                //Then, run your specific tests just like before.
+                let msg = res.body.product
+                //If there are no errors, the API should return the POSTED item.
+                let name = msg.productName
+                let cat = msg.category
+                let date = msg.date
+                let price = msg.price
+                let quantity = msg.quantity
+                name.should.equal('test')
+                cat.should.equal('test')
+                date.should.equal('Jan 6, 2040')
+            
+                done();
+            });
+});
+
+   // Updated Product
+   it("Tests if products can be UPDATED IN the DB", (done) => {
+    chai.request(app)
+        .post(`/Product/Edit`) //<=POST to some PATH, in our case, a good place to start is /Message/CreateMessage
+                                //This PATH can be any of the ones in router.js.
+
+    //Since this is a POST test, in my case, I want to .send some data to be posted.
+        .send({
+            "_id":  ID,
+    "productName":  "test",
+    "category":     "test",
+    "description":  "test",
+    "price":        10,
+    "date":         "Jan 6, 2040",
+    "quantity":     2,
+    "isSold":         false,
+        "buyers": [],
+    "seller":       "test",
+    })
+        .end((err, res) => {
+            //Output is returned fine
+        
+            done();
+        });
+});
+
 
 }).timeout(10000);

@@ -12,7 +12,9 @@
       "tests/*",
       "coverage/*",
       "Controllers/Home*",
-      "Controllers/User*"
+      "Controllers/User*",
+      "Data/*",
+      "Services/*"
     ]
   },
   "scripts": {
