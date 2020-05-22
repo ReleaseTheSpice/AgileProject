@@ -125,7 +125,7 @@ export class Forum {
     checkLogin() {
         // If user is not logged in, send them to the login page.
         if (this.username == '') {
-            this.router.navigate(['/login'])
+            this.router.navigate(['/login']);
         }
     }
 

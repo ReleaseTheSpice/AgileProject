@@ -36,4 +36,5 @@ describe('LoginComponent', () => {
         component.login();
         expect(component.errorMessage).toEqual('');
     });
+
 });

@@ -84,6 +84,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+            "codeCoverage": true,
+            "codeCoverageExclude": ["src/app/game-item/game-item.component.ts", "src/app/game-item-form/game-item-form.component.ts",
+              "src/app/game-item-list/game-item-list.component.ts", "src/app/product/product.component.ts",
+            "src/app/product-modal/product-modal.component.ts"],
             "assets": [
               "src/favicon.ico",
               "src/assets"
