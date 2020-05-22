@@ -84,7 +84,7 @@ export class Main {
     }
 
     getAllProducts() {
-        let url = BASE_URL + 'Index'
+        let url = BASE_URL + 'Index';
         this._http.get<any>(url)
             // Get data and wait for result.
             .subscribe(result => {

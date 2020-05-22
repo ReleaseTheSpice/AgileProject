@@ -143,7 +143,8 @@
     <div class="liveMessenger input-group">
         <div class="input-group-append">
             <input class="form-control" mdbInput type="text" name="content" [(ngModel)]="_content" required
-                       placeholder="Post Your Message" aria-label="Post Message" aria-describedby="post add on" >
+                       placeholder="Post Your Message" aria-label="Post Message" aria-describedby="post add on"
+            style="width:25em">
         </div>
         <input type="submit" class="form-control btn" value="Post Message"
                (click)="createMessage();clearMessage()">

@@ -63,8 +63,8 @@ export class Forum {
             _this.secureData = result.secureData;
             _this.reqInfo = result.reqInfo;
             _this.username = result.reqInfo.username;
-            this.upVotes = result.reqInfo.votedUp;
-            this.downVotes = result.reqInfo.votedDown;
+            _this.upVotes = result.reqInfo.votedUp;
+            _this.downVotes = result.reqInfo.votedDown;
             if (result.reqInfo.roles.indexOf('Admin') >= 0) {
                 _this.admin = true;
             }

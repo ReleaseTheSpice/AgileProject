@@ -62,18 +62,20 @@
       <small class="form-text col-12">{{errorMessage}}</small>
     </div> <!-- form-grp -->
 
-    <div class="custom-control custom-switch row mx-5">
-      <input type="checkbox" class="custom-control-input" id="isAdmin" mbdInput
-             name="admin" [(ngModel)]="admin">
-      <label class="custom-control-label" for="isAdmin">Is this an Admin User?</label>
-    </div>
+<!--    Admin roles ended up not being used, however their framework will be left in, in case we decide that a role feature
+        would be a good idea in the future.-->
+<!--    <div class="custom-control custom-switch row mx-5">-->
+<!--      <input type="checkbox" class="custom-control-input" id="isAdmin" mbdInput-->
+<!--             name="admin" [(ngModel)]="admin">-->
+<!--      <label class="custom-control-label" for="isAdmin">Is this an Admin User?</label>-->
+<!--    </div>-->
 
 
 
     <div class="form-group row justify-content-end justify-content-sm-start mx-4">
       <div class="col-auto">
         <button class="btn submit" *ngIf="validateUser()"
-                type="button" value="Add User" (click)="addUser();refresh()" >Register</button>
+                type="button" value="Add User" (click)="addUser();" >Register</button>
       </div>
     </div>
 
