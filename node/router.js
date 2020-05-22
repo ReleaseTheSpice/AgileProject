@@ -1,6 +1,5 @@
 var HomeController   = require('./Controllers/HomeController');
 var UserController   = require('./Controllers/UserController');
-var EventController   = require('./Controllers/EventController');
 var MessageController = require('./Controllers/MessageController');
 var ProductController = require('./Controllers/ProductController');
 const authMiddleware = require('./authHelper')
@@ -20,11 +19,6 @@ module.exports = function(app){
     app.get('/User/SecureArea', UserController.SecureArea);
     app.get('/User/ManagerArea', UserController.ManagerArea);
     app.put('/User/Vote', UserController.Vote);
-
-    app.get('/Event/GetEvents', EventController.GetEvents);
-    app.post('/Event/CreateEvent', EventController.CreateEvent);
-    app.put('/Event/AddAttendee', EventController.AddAttendee);
-    app.delete('/Event/Delete', EventController.Delete);
 
     app.get('/Message/GetMessages', MessageController.GetMessages);
     app.get('/Message/GetMessagesById', MessageController.GetMessagesById);

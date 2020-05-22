@@ -8,3 +8,4 @@
 /node/.DS_Store
 
 /node/.env
+node_modules
